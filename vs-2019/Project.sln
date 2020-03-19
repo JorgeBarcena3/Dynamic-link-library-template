@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dllTestLibrary", "..\dllTestLibrary\project\vs-2019\dllTestLibrary.vcxproj", "{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "..\demo\project\vs-2019\Demo.vcxproj", "{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538} = {6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}.Debug|x64.ActiveCfg = Debug|x64
+		{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}.Debug|x64.Build.0 = Debug|x64
+		{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}.Release|x64.ActiveCfg = Release|x64
+		{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}.Release|x64.Build.0 = Release|x64
+		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Debug|x64.ActiveCfg = Debug|x64
+		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Debug|x64.Build.0 = Debug|x64
+		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Release|x64.ActiveCfg = Release|x64
+		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {480A586E-7BE6-4C37-83C8-65A2986D13A7}
+	EndGlobalSection
+EndGlobal
