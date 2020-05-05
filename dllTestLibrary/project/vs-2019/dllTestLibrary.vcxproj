@@ -58,15 +58,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;LIBENLACEDINAMICO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../lib/OpenGLRendering/includes;../../lib/SFML-2.5.1/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib\targa\include;..\..\lib\glad\include;..\..\lib\glm;..\..\lib\tinyobj;..\..\lib\rapidxml-1.13;..\..\lib\SOIL\headers;../../lib/OpenGLRendering/includes;../../lib/SFML-2.5.1/include;../../lib/LuaState/include;../../lib/Lua/src;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>D:\GitHub\Dynamic-link-library-template\dllTestLibrary\lib\OpenGLRendering\lib\debug;../../lib/SFML-2.5.1/lib/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;OpenGLRender3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\lib\OpenGLRendering\lib\debug;../../lib/SFML-2.5.1/lib/x64;../../lib/Lua/lib/vs-2017/x64/debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;lua.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;OpenGLRender3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../demo/project/vs-2019"
@@ -81,7 +81,7 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Co
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;LIBENLACEDINAMICO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../lib/OpenGLRendering/includes;../../lib/SFML-2.5.1/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\lib\targa\include;..\..\lib\glad\include;..\..\lib\glm;..\..\lib\tinyobj;..\..\lib\rapidxml-1.13;..\..\lib\SOIL\headers;../../lib/OpenGLRendering/includes;../../lib/SFML-2.5.1/include;../../lib/LuaState/include;../../lib/Lua/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -90,8 +90,8 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Co
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>D:\GitHub\Dynamic-link-library-template\dllTestLibrary\lib\OpenGLRendering\lib\release;../../lib/SFML-2.5.1/lib/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sfml-main.lib;sfml-system-s.lib;sfml-window-s.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;OpenGLRender3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\lib\OpenGLRendering\lib\release;../../lib/SFML-2.5.1/lib/x64;../../lib/Lua/lib/vs-2017/x64/release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua.lib;winmm.lib;sfml-main.lib;sfml-system-s.lib;sfml-window-s.lib;opengl32.lib;glu32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;OpenGLRender3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../demo/project/vs-2019"
@@ -99,10 +99,21 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Co
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\code\headers\Aplication.hpp" />
+    <ClInclude Include="..\..\code\headers\Component.hpp" />
+    <ClInclude Include="..\..\code\headers\EntityPicker.hpp" />
     <ClInclude Include="..\..\code\headers\Example.hpp" />
+    <ClInclude Include="..\..\code\headers\LuaScripting.hpp" />
+    <ClInclude Include="..\..\code\headers\SceneLoader.hpp" />
+    <ClInclude Include="..\..\code\headers\Singleton.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\source\Aplication.cpp" />
+    <ClCompile Include="..\..\code\source\Component.cpp" />
+    <ClCompile Include="..\..\code\source\EntityPicker.cpp" />
     <ClCompile Include="..\..\code\source\Example.cpp" />
+    <ClCompile Include="..\..\code\source\LuaScripting.cpp" />
+    <ClCompile Include="..\..\code\source\SceneLoader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

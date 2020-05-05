@@ -7,14 +7,59 @@
     <Filter Include="headers">
       <UniqueIdentifier>{73e53c90-1c83-4508-8e0c-7d0caff74455}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{a64c1010-a43c-4ef9-b97d-b342eb4fdf02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{eb479a61-edff-4225-b5a8-89db94421d29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\base">
+      <UniqueIdentifier>{a2069ffe-4da0-4d82-9bb4-87a93453320e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tools">
+      <UniqueIdentifier>{66fc0613-46f3-4d11-872e-d00c08184f23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\Example.hpp">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\Aplication.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Component.hpp">
+      <Filter>Components\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\LuaScripting.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\Singleton.hpp">
+      <Filter>tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\SceneLoader.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\EntityPicker.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\source\Example.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\Aplication.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\Component.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\LuaScripting.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\EntityPicker.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\SceneLoader.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -87,9 +87,9 @@ namespace OpenGLRender3D
 
         void removeLight(std::string name);
 
-        void Scene::resize(int width, int height);
+        void resize(int width, int height);
 
-        bool Scene::manageInput(std::vector<std::string> keys, glm::vec2 mousePosition, bool mousePressed);
+        bool manageInput(std::vector<std::string> keys, glm::vec2 mousePosition, bool mousePressed);
 
         Camera* getMainCamera();
 

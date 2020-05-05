@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Example.hpp"
+#include <Aplication.hpp>
+#include <LuaScripting.hpp>
 
 using namespace std;
 
@@ -17,6 +19,9 @@ using namespace std;
 // CAMBIAR PROPIEDADES DE LA LIZ EN TIEMPO REAL
 // AÑADIR CON LUA, UN CICLO DE UPDATE A LAS ENTIDADES QUE DESEMOS
 // DETERMINAR POR CONSOLA QUE ESCENA QUEREMOS ABRIR
+// CAMBIAR EL NOMBRE A LAS ENTIDADES
+// CAMBIAR EL TIPO DE OPACIDAD
+// CAMBIAR LAS TEXTURAS -- Opcional (?)
 
 /*
 ----------------------------|
@@ -33,5 +38,11 @@ using namespace std;
 int main()
 {
     cout << test();
+
+    SceneCreator::Aplication app;
+
+    app.getScripting().exec("loadScene('Esto es mi path')");
+
+
     return 0;
 }
