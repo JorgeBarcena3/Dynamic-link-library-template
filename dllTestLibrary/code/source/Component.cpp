@@ -1,6 +1,6 @@
 #include "..\headers\Component.hpp"
 
-bool SceneCreator::Component::initialice_scripting_lua(SceneCreator::LuaScripting& scripting)
+bool TaskManager::Component::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
     return true;
 }

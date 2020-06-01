@@ -1,22 +1,26 @@
 #include "..\headers\Aplication.hpp"
 #include "..\headers\Component.hpp"
 #include "..\headers\LuaScripting.hpp"
-#include "..\headers\SceneLoader.hpp"
+#include "..\headers\PanelLoader.hpp"
+#include "..\headers\PanelExporter.hpp"
+#include "..\headers\PanelManager.hpp"
 
-SceneCreator::Aplication::Aplication()
+TaskManager::Aplication::Aplication()
 {
 
     aplicationComponents["scriptingComponent"] = new LuaScripting();
-    aplicationComponents["SceneLoader"]        = new SceneLoader();
+    aplicationComponents["PanelLoader"]        = new PanelLoader();
+    aplicationComponents["PanelExporter"]      = new PanelExporter();
+    aplicationComponents["PanelManager"]       = new PanelManager();
 
     for (auto component : aplicationComponents)
     {
-        component.second->initialice_scripting_lua(getScripting());
+        component.second->initializeLuaScripting(getScripting());
     }
 
 }
 
-SceneCreator::Aplication::~Aplication()
+TaskManager::Aplication::~Aplication()
 {
     for (auto component : aplicationComponents)
     {
@@ -24,7 +28,7 @@ SceneCreator::Aplication::~Aplication()
     }
 }
 
-SceneCreator::LuaScripting& SceneCreator::Aplication::getScripting()
+TaskManager::LuaScripting& TaskManager::Aplication::getScripting()
 {
-    return *((SceneCreator::LuaScripting*) (aplicationComponents["scriptingComponent"]));
+    return *((TaskManager::LuaScripting*) (aplicationComponents["scriptingComponent"]));
 }

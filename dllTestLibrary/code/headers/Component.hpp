@@ -20,17 +20,17 @@
 
 #include "Aplication.hpp"
 
-namespace SceneCreator
+namespace TaskManager
 {
 
     class LuaScripting;
 
-    class SCENECREATORAPI Component
+    class TASKMANAGERAPI Component
     {
 
     public:
 
-        virtual bool initialice_scripting_lua(SceneCreator::LuaScripting& scripting);
+        virtual bool initializeLuaScripting(TaskManager::LuaScripting& scripting);
 
     };
 }

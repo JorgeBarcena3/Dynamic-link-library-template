@@ -2,13 +2,13 @@
 #include "LuaState.h"
 
 
-SceneCreator::LuaScripting::LuaScripting()
+TaskManager::LuaScripting::LuaScripting()
 {
     vm = new lua::State();
 
 }
 
-void SceneCreator::LuaScripting::exec(const std::string& luaCode)
+void TaskManager::LuaScripting::exec(const std::string& luaCode)
 {
     vm->doString(luaCode);
 }

@@ -17,34 +17,46 @@
 
 
 
-#ifndef LUASCRIPTING_HEADER
-#define LUASCRIPTING_HEADER
+#ifndef PANELMANAGER_HEADER
+#define PANELMANAGER_HEADER
 
 #define LUA_COMPAT_APIINTCASTS
 
 #include <string>
+#include <LuaState.h>
 #include "Component.hpp"
 
-namespace lua
-{
-    class State;
-}
+using namespace std;
 
 namespace TaskManager
 {
-    class TASKMANAGERAPI LuaScripting : public Component
+
+    class PanelDto;
+
+    class TASKMANAGERAPI PanelManager : public Component
     {
 
+    private:
+
+        int currentPanelId;
+
+        vector<PanelDto*> panels;
+
     public:
 
-        lua::State * vm;
+        inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
 
-    public:
+        bool addState(string title);
 
-        LuaScripting();
+        bool addTaskToState(string stateTitle, string t, string d, string a);
 
-        void exec(const std::string& luaCode);
+        bool removeTaskofState(string stateTitle, string t);
 
+        bool changeTaskToState(string stateTile, string t, string toStateTitle);
+
+        bool removeState(string t);
+
+        bool initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     };
 

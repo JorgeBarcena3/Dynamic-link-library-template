@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#define SCENECREATORAPI __declspec(dllexport)
+#define TASKMANAGERAPI __declspec(dllexport)
 
 
 #ifndef APLICATION_HEADER
@@ -26,18 +26,18 @@
 
 #include <map>
 
-namespace SceneCreator
+namespace TaskManager
 {
 
     class Component;
     class LuaScripting;
 
-    class SCENECREATORAPI Aplication : public Singleton<Aplication>
+    class TASKMANAGERAPI Aplication : public Singleton<Aplication>
     {
 
     private:
 
-        std::map<std::string, SceneCreator::Component * > aplicationComponents;
+        std::map<std::string, TaskManager::Component * > aplicationComponents;
 
 
     public:

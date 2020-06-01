@@ -39,7 +39,7 @@ int main()
 {
     cout << test();
 
-    SceneCreator::Aplication app;
+    TaskManager::Aplication app;
 
     app.getScripting().exec("loadScene('Esto es mi path')");
 

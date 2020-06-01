@@ -15,25 +15,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#ifndef SINGLETON_HEADER
-#define SINGLETON_HEADER
+
+
+#ifndef PANELEXPORTER_HEADER
+#define PANELEXPORTER_HEADER
+
+#define LUA_COMPAT_APIINTCASTS
+
+#include <string>
+#include <LuaState.h>
+#include "Component.hpp"
 
 namespace TaskManager
 {
-    template <class T>
-    class TASKMANAGERAPI Singleton
+    class TASKMANAGERAPI PanelExporter : public Component
     {
 
     public:
 
-        static T instance()
-        {
-            static T app;
-            return app;
+        bool exportPanel(std::string directory);
 
-        }
+        bool initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     };
-}
 
+}
 #endif

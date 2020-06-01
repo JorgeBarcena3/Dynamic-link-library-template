@@ -36,10 +36,22 @@
     <ClInclude Include="..\..\code\headers\Singleton.hpp">
       <Filter>tools</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\SceneLoader.hpp">
+    <ClInclude Include="..\..\code\headers\PanelLoader.hpp">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\headers\EntityPicker.hpp">
+    <ClInclude Include="..\..\code\headers\TaskDto.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\StateDto.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\PanelDto.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\PanelManager.hpp">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\headers\PanelExporter.hpp">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,10 +68,22 @@
     <ClCompile Include="..\..\code\source\LuaScripting.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\source\EntityPicker.cpp">
+    <ClCompile Include="..\..\code\source\PanelLoader.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\code\source\SceneLoader.cpp">
+    <ClCompile Include="..\..\code\source\PanelDto.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\TaskDto.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\StateDto.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\PanelManager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\source\PanelExporter.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

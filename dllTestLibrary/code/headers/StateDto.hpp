@@ -15,25 +15,53 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#ifndef SINGLETON_HEADER
-#define SINGLETON_HEADER
+
+
+#ifndef STATEDTO_HEADER
+#define STATEDTO_HEADER
+
+#include <vector>
+#include <string>
+#include "TaskDto.hpp"
+
+using namespace std;
 
 namespace TaskManager
 {
-    template <class T>
-    class TASKMANAGERAPI Singleton
+
+    class PanelDto;
+
+    class StateDto
     {
+
+
+    private:
+
+        std::string title;
+
+        vector<TaskDto *> task;
+
+        PanelDto * panel;
 
     public:
 
-        static T instance()
-        {
-            static T app;
-            return app;
+        StateDto() = default;
 
-        }
+        inline vector<TaskDto*> getTask() { return task; };
 
+        inline void addTask(TaskDto t) { task.push_back(new TaskDto(t)); task.at(task.size() - 1)->setState(this); };
+
+        inline bool removeTask(string title);
+
+        inline void setPanel(PanelDto* p) { panel = p; };
+
+        inline PanelDto* getPanel() { return panel; };
+
+        inline std::string getTitle() { return title; };
+
+        inline void setTitle(std::string t) { title = t; };
+        
     };
-}
 
+}
 #endif
