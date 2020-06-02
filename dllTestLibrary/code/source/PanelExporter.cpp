@@ -34,12 +34,12 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
     for (auto panel : manager->getAllPanels().getReturnObj())
     {
         xml_node<>* panel_node = doc.allocate_node(node_element, "Panel");
-        panel_node->append_attribute(doc.allocate_attribute("Title", panel->getTitle().c_str()));
+        panel_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string( panel->getTitle().c_str())));
 
         for (auto state : manager->getStatesFromPanel(panel->getTitle()).getReturnObj())
         {
             xml_node<> * state_node = doc.allocate_node(node_element, "State");
-            state_node->append_attribute(doc.allocate_attribute("Title", state->getTitle().c_str()));
+            state_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string(state->getTitle().c_str())));
             auto name = state->getTitle();
 
             for (auto task : manager->getTaskFromState(state->getTitle()).getReturnObj())
@@ -47,19 +47,19 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
                 xml_node<>* task_node = doc.allocate_node(node_element, "Task");
 
                 xml_node<>* title_node  = doc.allocate_node(node_element, "Title");
-                title_node->value( task->getTitle().c_str());
+                title_node->value(doc.allocate_string(task->getTitle().c_str()));
                 task_node->append_node(title_node);
 
                 xml_node<>* descp_node  = doc.allocate_node(node_element, "Description");
-                descp_node->value( task->getDescription().c_str());
+                descp_node->value(doc.allocate_string(task->getDescription().c_str()));
                 task_node->append_node(descp_node);
 
                 xml_node<>* assing_node = doc.allocate_node(node_element, "Assign");
-                assing_node->value ( task->getAssigned().c_str());
+                assing_node->value (doc.allocate_string(task->getAssigned().c_str()));
                 task_node->append_node(assing_node);
 
                 xml_node<>* date_node   = doc.allocate_node(node_element, "Date");
-                date_node->value ( to_string( task->getCreationDate()).c_str());
+                date_node->value (doc.allocate_string(to_string( task->getCreationDate()).c_str()));
                 task_node->append_node(date_node);
 
 
