@@ -6,6 +6,7 @@
 #include <TaskStatus.hpp>
 #include <TaskDto.hpp>
 #include <StateDto.hpp>
+#include <PanelExporter.hpp>
 
 using namespace std;
 using namespace TaskManager;
@@ -28,7 +29,7 @@ void showThings(PanelManager& manager)
 
         for (auto t : manager.getTaskFromState(state->getTitle()).getReturnObj())
         {
-            cout << t->getTitle() << " " << t->getDescription() << " " << t->getAssigned() << " " << t->getLimitDate() << endl;
+            cout << t->getTitle() << " " << t->getDescription() << " " << t->getAssigned() << " " << t->getCreationDate() << endl;
         }
 
         cout << endl << endl;
@@ -38,7 +39,7 @@ void showThings(PanelManager& manager)
 
 int main()
 {
-    Aplication app;
+    Aplication app = Aplication::instance();
 
     PanelManager * manager = (PanelManager * )app.getComponent("PanelManager");
 
@@ -81,6 +82,9 @@ int main()
 
     system("pause");
     system("cls");
+
+    PanelExporter* ex = ((PanelExporter*)app.getComponent("PanelExporter"));
+    ex->exportData("");
 
     return 0;
 }

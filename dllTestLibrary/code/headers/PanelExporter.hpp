@@ -23,7 +23,6 @@
 #define LUA_COMPAT_APIINTCASTS
 
 #include <string>
-#include <LuaState.h>
 #include "Component.hpp"
 
 namespace TaskManager
@@ -33,7 +32,7 @@ namespace TaskManager
 
     public:
 
-        TaskStatus_b exportPanel(std::string directory);
+        TaskStatus_b exportData(std::string directory);
 
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 

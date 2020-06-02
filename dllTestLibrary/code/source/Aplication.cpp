@@ -22,10 +22,11 @@ TaskManager::Aplication::Aplication()
 
 TaskManager::Aplication::~Aplication()
 {
-    for (auto component : aplicationComponents)
-    {
-        delete component.second;
-    }
+    //for (auto component : aplicationComponents)
+    //{
+    //    delete component.second;
+    //    aplicationComponents.erase(component.first);
+    //}
 }
 
 TaskManager::LuaScripting& TaskManager::Aplication::getScripting()

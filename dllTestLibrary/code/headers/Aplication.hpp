@@ -32,7 +32,7 @@ namespace TaskManager
     class Component;
     class LuaScripting;
 
-    class TASKMANAGERAPI Aplication : public Singleton<Aplication>
+    class TASKMANAGERAPI Aplication
     {
 
     private:
@@ -41,14 +41,23 @@ namespace TaskManager
 
 
     public:
+      
+        static Aplication instance()
+        {
+            static Aplication app;
+            return app;
 
-        Aplication();       
+        }
 
         ~Aplication();
 
         LuaScripting & getScripting ();
 
         TaskManager::Component* getComponent(std::string name);
+
+    protected:
+
+        Aplication();
 
 
 

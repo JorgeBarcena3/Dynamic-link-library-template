@@ -38,6 +38,8 @@ namespace TaskManager
 
         virtual TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting);
 
+        ~Component() {};
+
     };
 }
 

@@ -44,7 +44,7 @@ namespace TaskManager
 
         string assigned;
 
-        time_t  limitDate;
+        time_t  creationDate;
 
         StateDto * stateDto;
 
@@ -59,7 +59,7 @@ namespace TaskManager
             title = tit;
             description = descp;
             assigned = assign;
-            limitDate = time(0);
+            creationDate = time(0);
 
         }
 
@@ -71,7 +71,7 @@ namespace TaskManager
 
         inline string getAssigned() { return assigned; };
 
-        inline time_t  getLimitDate() { return limitDate; };
+        inline time_t  getCreationDate() { return creationDate; };
 
         StateDto & getStateDto();
 
@@ -83,7 +83,7 @@ namespace TaskManager
 
         inline void setAssigned(string text) { assigned = text; }
 
-        inline void setDate(time_t  date) { limitDate = date; }
+        inline void setDate(time_t  date) { creationDate = date; }
 
     };
 
