@@ -1,31 +1,71 @@
 #include "../headers/PanelManager.hpp"
+#include "../headers\PanelDto.hpp"
 
-bool TaskManager::PanelManager::addState(string title)
+using namespace TaskManager;
+
+TaskStatus TaskManager::PanelManager::addState(string title)
 {
-    return false;
+    return panels[currentPanelId]->addState(StateDto(title, panels[currentPanelId]));
 }
 
-bool TaskManager::PanelManager::addTaskToState(string stateTitle, string t, string d, string a)
+TaskStatus TaskManager::PanelManager::addTaskToState(string stateTitle, string t, string d, string a)
 {
-    return false;
+    auto s = panels[currentPanelId]->getState(stateTitle);
+
+    if (s)
+    {
+        return s->addTask(TaskDto(t, d, a));
+    }
+
+    return TaskManager::TaskStatus("Estado con el titlulo [" + stateTitle + "] no encontrado", false);
 }
 
-bool TaskManager::PanelManager::removeTaskofState(string stateTitle, string t)
+TaskStatus TaskManager::PanelManager::removeTaskofState(string stateTitle, string t)
 {
-    return false;
+    auto s = panels[currentPanelId]->getState(stateTitle);
+
+    if (s)
+    {
+        return s->removeTask(t);
+
+    }
+
+    return TaskManager::TaskStatus("Estado con el titlulo [" + stateTitle + "] no encontrado", false);
 }
 
-bool TaskManager::PanelManager::changeTaskToState(string stateTile, string t, string toStateTitle)
+TaskStatus TaskManager::PanelManager::changeTaskToState(string stateTile, string t, string toStateTitle)
 {
-    return false;
+    auto s = panels[currentPanelId]->getState(stateTile);
+
+    if (s)
+    {
+
+        auto task = s->getTask(t);
+
+        if (task)
+        {
+            s->removeTask(t);
+            auto ns = panels[currentPanelId]->getState(toStateTitle);
+            ns->addTask(*task);
+
+        }
+        else
+        {
+            return TaskManager::TaskStatus("Tarea con el nombre [" + t + "] en el estado [" + stateTile + "] no econtrado", false);
+        }
+        return s->removeTask(t);
+
+    }
+
+    return TaskManager::TaskStatus("Estado con el nombre [" + stateTile + "] no econtrado", false);
 }
 
-bool TaskManager::PanelManager::removeState(string t)
+TaskStatus TaskManager::PanelManager::removeTask(string t)
 {
-    return false;
+    return true;
 }
 
-bool TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaScripting& scripting)
+TaskStatus TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
-    return false;
+    return true;
 }

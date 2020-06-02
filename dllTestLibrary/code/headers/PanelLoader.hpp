@@ -33,9 +33,9 @@ namespace TaskManager
 
     public:
 
-        bool loadPanel(std::string path);
+        TaskStatus loadPanel(std::string path);
 
-        bool initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+        TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     };
 

@@ -23,6 +23,7 @@
 #include <vector>
 #include <string>
 #include "TaskDto.hpp"
+#include "TaskStatus.hpp"
 
 using namespace std;
 
@@ -47,11 +48,15 @@ namespace TaskManager
 
         StateDto() = default;
 
-        inline vector<TaskDto*> getTask() { return task; };
+        StateDto(string t, PanelDto * p) : title(t), panel(p) { };
 
-        inline void addTask(TaskDto t) { task.push_back(new TaskDto(t)); task.at(task.size() - 1)->setState(this); };
+        inline vector<TaskDto*> getTasks() { return task; };
 
-        inline bool removeTask(string title);
+        TaskStatus addTask(TaskDto t);
+
+        TaskStatus removeTask(string title);
+
+        TaskDto * getTask(string t);
 
         inline void setPanel(PanelDto* p) { panel = p; };
 
@@ -60,6 +65,11 @@ namespace TaskManager
         inline std::string getTitle() { return title; };
 
         inline void setTitle(std::string t) { title = t; };
+
+    private:
+
+        bool itsCreated(string t);
+
         
     };
 

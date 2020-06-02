@@ -54,6 +54,9 @@
     <ClInclude Include="..\..\code\headers\PanelExporter.hpp">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\headers\TaskStatus.hpp">
+      <Filter>Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\source\Example.cpp">

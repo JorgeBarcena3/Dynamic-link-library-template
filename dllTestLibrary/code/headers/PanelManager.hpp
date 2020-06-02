@@ -46,17 +46,17 @@ namespace TaskManager
 
         inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
 
-        bool addState(string title);
+        TaskStatus addState(string title);
 
-        bool addTaskToState(string stateTitle, string t, string d, string a);
+        TaskStatus addTaskToState(string stateTitle, string t, string d, string a);
 
-        bool removeTaskofState(string stateTitle, string t);
+        TaskStatus removeTaskofState(string stateTitle, string t);
 
-        bool changeTaskToState(string stateTile, string t, string toStateTitle);
+        TaskStatus changeTaskToState(string stateTile, string t, string toStateTitle);
 
-        bool removeState(string t);
+        TaskStatus removeTask(string t);
 
-        bool initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+        TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     };
 

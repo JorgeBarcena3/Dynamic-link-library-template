@@ -23,6 +23,7 @@
 #include <vector>
 #include <string>
 #include "StateDto.hpp"
+#include "TaskStatus.hpp"
 
 using namespace std;
 
@@ -46,13 +47,19 @@ namespace TaskManager
 
         inline vector<StateDto*> getStates() { return states; };
 
-        inline void addTask(StateDto t) { states.push_back(new StateDto(t)); states.at(states.size() - 1)->setPanel(this); };
+        TaskStatus addState(StateDto t);
 
-        inline bool removeTask(string title);
+        TaskStatus removeTask(string title);
+
+        StateDto* getState(string title);
 
         inline std::string getTitle() { return title; };
 
         inline void setTitle(std::string t) { title = t; };
+
+    private:
+
+        bool itsCreated(string t);
 
     };
 

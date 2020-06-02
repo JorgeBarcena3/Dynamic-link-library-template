@@ -19,6 +19,8 @@
 #define COMPONENT_HEADER
 
 #include "Aplication.hpp"
+#include "TaskStatus.hpp"
+
 
 namespace TaskManager
 {
@@ -30,7 +32,7 @@ namespace TaskManager
 
     public:
 
-        virtual bool initializeLuaScripting(TaskManager::LuaScripting& scripting);
+        virtual TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting);
 
     };
 }

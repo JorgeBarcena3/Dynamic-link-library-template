@@ -110,6 +110,7 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Co
     <ClInclude Include="..\..\code\headers\Singleton.hpp" />
     <ClInclude Include="..\..\code\headers\StateDto.hpp" />
     <ClInclude Include="..\..\code\headers\TaskDto.hpp" />
+    <ClInclude Include="..\..\code\headers\TaskStatus.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\source\Aplication.cpp" />

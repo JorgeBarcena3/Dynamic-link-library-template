@@ -17,25 +17,40 @@
 
 
 
-#ifndef PANELEXPORTER_HEADER
-#define PANELEXPORTER_HEADER
-
-#define LUA_COMPAT_APIINTCASTS
+#ifndef TASKSTATUS_HEADER
+#define TASKSTATUS_HEADER
 
 #include <string>
-#include <LuaState.h>
-#include "Component.hpp"
+
+using namespace std;
 
 namespace TaskManager
 {
-    class TASKMANAGERAPI PanelExporter : public Component
+
+    class TaskStatus
     {
+
+    private:
+
+        string error;
+
+        bool succesful;
 
     public:
 
-        TaskStatus exportPanel(std::string directory);
+        TaskStatus(string e, bool s) : error(e), succesful(s)
+        {
 
-        TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+        }
+
+        TaskStatus(bool s) : succesful(s), error("")
+        {
+
+        }
+
+        inline string getError() { return error; };
+
+        inline bool getSuccesful() { return succesful; };
 
     };
 
