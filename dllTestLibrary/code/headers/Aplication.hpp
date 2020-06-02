@@ -37,21 +37,23 @@ namespace TaskManager
 
     private:
 
-        std::map<std::string, TaskManager::Component * > aplicationComponents;
+        static Aplication * app;
+
+    public:
+
+        static Aplication* instance();
+
+    private:
+
+        std::map<std::string, TaskManager::Component* > aplicationComponents;
 
 
     public:
-      
-        static Aplication instance()
-        {
-            static Aplication app;
-            return app;
-
-        }
+              
 
         ~Aplication();
 
-        LuaScripting & getScripting ();
+        LuaScripting& getScripting();
 
         TaskManager::Component* getComponent(std::string name);
 

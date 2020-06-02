@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Example.hpp"
 #include <Aplication.hpp>
 #include <LuaScripting.hpp>
 #include <PanelManager.hpp>
@@ -39,9 +38,9 @@ void showThings(PanelManager& manager)
 
 int main()
 {
-    Aplication app = Aplication::instance();
+    Aplication * aplication_ = Aplication::instance();
 
-    PanelManager * manager = (PanelManager * )app.getComponent("PanelManager");
+    PanelManager * manager = (PanelManager * )aplication_->getComponent("PanelManager");
 
     TaskStatus_b err(true);
 
@@ -61,7 +60,7 @@ int main()
                 stateName, 
                 "Tarea " + to_string(i) + to_string(j),
                 "Descripcion " + to_string(i) + to_string(j), 
-                "Jorge"
+                "jorge"
             );
 
             errorOk(err);
@@ -83,7 +82,7 @@ int main()
     system("pause");
     system("cls");
 
-    PanelExporter* ex = ((PanelExporter*)app.getComponent("PanelExporter"));
+    PanelExporter* ex = ((PanelExporter*)aplication_->getComponent("PanelExporter"));
     ex->exportData("");
 
     return 0;

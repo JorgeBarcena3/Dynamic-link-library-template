@@ -68,6 +68,8 @@ namespace TaskManager
 
         TaskStatus<vector<StateDto* >> getStatesFromPanel(string t);
 
+        TaskStatus<vector<PanelDto* >> getAllPanels();
+
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
 

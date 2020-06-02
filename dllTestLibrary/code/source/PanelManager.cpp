@@ -130,6 +130,11 @@ TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(st
     return TaskStatus < vector<StateDto* > >("No se ha encontrado el panel", nullptr);
 }
 
+TaskStatus<vector<PanelDto*>> TaskManager::PanelManager::getAllPanels()
+{
+    return new vector<PanelDto*>( panels );
+}
+
 TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
     scripting.vm->set("addState"          , [this](const char* t)    {this->addState(t);  });

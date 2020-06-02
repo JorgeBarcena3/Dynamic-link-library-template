@@ -5,6 +5,11 @@
 #include "..\headers\PanelExporter.hpp"
 #include "..\headers\PanelManager.hpp"
 
+
+using namespace TaskManager;
+
+Aplication * Aplication::app = nullptr;
+
 TaskManager::Aplication::Aplication()
 {
 
@@ -20,13 +25,23 @@ TaskManager::Aplication::Aplication()
 
 }
 
+Aplication* TaskManager::Aplication::instance()
+{
+    if (app)
+        return app;
+
+    app = new Aplication();
+    return app;
+
+}
+
 TaskManager::Aplication::~Aplication()
 {
-    //for (auto component : aplicationComponents)
-    //{
-    //    delete component.second;
-    //    aplicationComponents.erase(component.first);
-    //}
+    for (auto component : aplicationComponents)
+    {
+        delete component.second;
+        aplicationComponents.erase(component.first);
+    }
 }
 
 TaskManager::LuaScripting& TaskManager::Aplication::getScripting()
