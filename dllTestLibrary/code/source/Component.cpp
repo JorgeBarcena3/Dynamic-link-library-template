@@ -1,6 +1,9 @@
 #include "..\headers\Component.hpp"
 
-TaskManager::TaskStatus TaskManager::Component::initializeLuaScripting(TaskManager::LuaScripting& scripting)
+#include "..\headers\LuaScripting.hpp"
+#include "LuaState.h"
+
+TaskManager::TaskStatus_b TaskManager::Component::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
     return true;
 }

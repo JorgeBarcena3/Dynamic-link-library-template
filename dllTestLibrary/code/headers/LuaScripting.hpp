@@ -25,10 +25,6 @@
 #include <string>
 #include "Component.hpp"
 
-namespace lua
-{
-    class State;
-}
 
 namespace TaskManager
 {

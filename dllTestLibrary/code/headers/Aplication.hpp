@@ -48,6 +48,8 @@ namespace TaskManager
 
         LuaScripting & getScripting ();
 
+        TaskManager::Component* getComponent(std::string name);
+
 
 
     };

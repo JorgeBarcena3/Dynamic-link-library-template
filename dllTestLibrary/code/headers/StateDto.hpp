@@ -52,9 +52,9 @@ namespace TaskManager
 
         inline vector<TaskDto*> getTasks() { return task; };
 
-        TaskStatus addTask(TaskDto t);
+        TaskStatus_b addTask(TaskDto t);
 
-        TaskStatus removeTask(string title);
+        TaskStatus_b removeState(string title);
 
         TaskDto * getTask(string t);
 

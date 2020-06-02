@@ -27,6 +27,8 @@ using namespace std;
 namespace TaskManager
 {
 
+
+    template<class T>
     class TaskStatus
     {
 
@@ -34,25 +36,59 @@ namespace TaskManager
 
         string error;
 
-        bool succesful;
+        T* returnObj;
 
     public:
 
-        TaskStatus(string e, bool s) : error(e), succesful(s)
+        TaskStatus(string e, T* s) : error(e), returnObj(s)
         {
 
         }
 
-        TaskStatus(bool s) : succesful(s), error("")
+        TaskStatus(T* s) : returnObj(s), error("")
         {
 
         }
 
         inline string getError() { return error; };
 
-        inline bool getSuccesful() { return succesful; };
+        inline T getReturnObj() { return *returnObj; };
+
+        inline bool itsOk() { return returnObj != nullptr; };
 
     };
+
+
+    template <>
+    class TaskStatus<bool>
+    {
+    private:
+
+        string error;
+
+        bool returnObj;
+
+    public:
+
+        TaskStatus(string e, bool s) : error(e), returnObj(s)
+        {
+
+        }
+
+        TaskStatus(bool s) : returnObj(s), error("")
+        {
+
+        }
+
+        inline bool itsOk() { return returnObj; };
+
+
+    };
+
+    typedef TaskStatus<bool> TaskStatus_b;
+
+   
+
 
 }
 #endif

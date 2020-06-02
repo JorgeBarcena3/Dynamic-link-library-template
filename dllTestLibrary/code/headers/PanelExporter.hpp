@@ -33,9 +33,9 @@ namespace TaskManager
 
     public:
 
-        TaskStatus exportPanel(std::string directory);
+        TaskStatus_b exportPanel(std::string directory);
 
-        TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+        TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     };
 

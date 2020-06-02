@@ -45,11 +45,16 @@ namespace TaskManager
 
         PanelDto() = default;
 
+        PanelDto(string t) : title(t)
+        {
+
+        }
+
         inline vector<StateDto*> getStates() { return states; };
 
-        TaskStatus addState(StateDto t);
+        TaskStatus_b addState(StateDto t);
 
-        TaskStatus removeTask(string title);
+        TaskStatus_b removeState(string title);
 
         StateDto* getState(string title);
 

@@ -2,47 +2,85 @@
 #include "Example.hpp"
 #include <Aplication.hpp>
 #include <LuaScripting.hpp>
+#include <PanelManager.hpp>
+#include <TaskStatus.hpp>
+#include <TaskDto.hpp>
+#include <StateDto.hpp>
 
 using namespace std;
+using namespace TaskManager;
 
-// FUNCIONALIDADES DE LA HERRAMIENTA
+void errorOk(TaskStatus_b & err)
+{
+    if (!err.itsOk())
+    {
+        throw new std::exception();
+    }
+}
 
-// LEER UN XML CON LA DESCRIPCION DE LA ESCENA Y CARGARLA
-// ESCRIBIR UN XML CON LA DESCRIPCION DE LA ESCENA ACTUAL
-// VER LA JERARQUIA DE ENTIDADES EN TIEMPO REAL
-// AÑADIR OBJETOS DE TIPO: MALLA; CILINDRO; MODELO3D Y LUZ
-// RENDERIZAR ESOS OBJETOS EN TIEMPO REAL
-// CAMBIAR JERARQUIA DE ESCENA EN TIEMPO REAL
-// CAMBIAR TRANSFORM DE LAS ENTIDADES EN TIEMPO REAL
-// CAMBIAR POSICION DE LA CAMARA CON EL RATON (IMPLEMENTADO CON LA LIBRERIA)
-// CAMBIAR TEXTURAS DEL SKYBOX EN TIEMPO REAL -- Ocional (?)
-// CAMBIAR PROPIEDADES DE LA LIZ EN TIEMPO REAL
-// AÑADIR CON LUA, UN CICLO DE UPDATE A LAS ENTIDADES QUE DESEMOS
-// DETERMINAR POR CONSOLA QUE ESCENA QUEREMOS ABRIR
-// CAMBIAR EL NOMBRE A LAS ENTIDADES
-// CAMBIAR EL TIPO DE OPACIDAD
-// CAMBIAR LAS TEXTURAS -- Opcional (?)
+void showThings(PanelManager& manager)
+{
+    auto a = manager.getStatesFromPanel("Test");
 
-/*
-----------------------------|
-|                           |
-|---------------------------|
-|      |              |     |
-|      |              |     |
-|      |              |-----|
-|      |              |     |
-|      |              |     |
-|---------------------------|
-*/
+    for (auto state : a.getReturnObj())
+    {
+        cout << state->getTitle() << endl;
+
+        for (auto t : manager.getTaskFromState(state->getTitle()).getReturnObj())
+        {
+            cout << t->getTitle() << " " << t->getDescription() << " " << t->getAssigned() << " " << t->getLimitDate() << endl;
+        }
+
+        cout << endl << endl;
+    }
+
+}
 
 int main()
 {
-    cout << test();
+    Aplication app;
 
-    TaskManager::Aplication app;
+    PanelManager * manager = (PanelManager * )app.getComponent("PanelManager");
 
-    app.getScripting().exec("loadScene('Esto es mi path')");
+    TaskStatus_b err(true);
 
+    err = manager->createPanel("Test");
+    err = manager->changeToPanel("Test");
+
+    for (size_t i = 0; i < 10; i++)
+    {
+        string stateName = "State " + to_string( i );
+        err = manager->addState(stateName);
+
+        errorOk(err);        
+
+        for (size_t j = 0; j < 5; j++)
+        {
+            err = manager->addTaskToState(
+                stateName, 
+                "Tarea " + to_string(i) + to_string(j),
+                "Descripcion " + to_string(i) + to_string(j), 
+                "Jorge"
+            );
+
+            errorOk(err);
+
+        }
+
+    }
+
+    showThings(*manager);
+
+    system("pause");
+    system("cls");
+
+    err = manager->changeTaskToState("State 0", "Tarea 02", "State 3");
+    errorOk(err);
+
+    showThings(*manager);
+
+    system("pause");
+    system("cls");
 
     return 0;
 }

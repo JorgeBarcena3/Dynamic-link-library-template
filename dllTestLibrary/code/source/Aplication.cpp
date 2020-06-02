@@ -32,3 +32,8 @@ TaskManager::LuaScripting& TaskManager::Aplication::getScripting()
 {
     return *((TaskManager::LuaScripting*) (aplicationComponents["scriptingComponent"]));
 }
+
+TaskManager::Component* TaskManager::Aplication::getComponent(std::string name)
+{
+    return aplicationComponents[name];
+}

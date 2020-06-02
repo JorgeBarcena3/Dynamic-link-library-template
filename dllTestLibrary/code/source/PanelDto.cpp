@@ -1,7 +1,7 @@
 #include "../headers/PanelDto.hpp"
 #include "../headers/StateDto.hpp"
 
-TaskManager::TaskStatus TaskManager::PanelDto::addState(StateDto t)
+TaskManager::TaskStatus_b TaskManager::PanelDto::addState(StateDto t)
 {
 
     if (!itsCreated(t.getTitle()))
@@ -12,11 +12,11 @@ TaskManager::TaskStatus TaskManager::PanelDto::addState(StateDto t)
 
     }
 
-    return TaskManager::TaskStatus("Estado ya creado con el mismo nombre", false);
+    return TaskManager::TaskStatus_b("Estado ya creado con el mismo nombre", false);
 
 }
 
-TaskManager::TaskStatus TaskManager::PanelDto::removeTask(string title)
+TaskManager::TaskStatus_b TaskManager::PanelDto::removeState(string title)
 {
     for (int i = 0; i < states.size(); i++)
     {
@@ -27,7 +27,7 @@ TaskManager::TaskStatus TaskManager::PanelDto::removeTask(string title)
         }
     }
 
-    return TaskManager::TaskStatus("Tarea no encontrada", false);;
+    return TaskManager::TaskStatus_b("Estado no encontrado", false);;
 }
 
 TaskManager::StateDto* TaskManager::PanelDto::getState(string t)

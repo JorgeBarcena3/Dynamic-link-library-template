@@ -1,6 +1,6 @@
 #include "..\headers\StateDto.hpp"
 
-TaskManager::TaskStatus TaskManager::StateDto::addTask(TaskDto t)
+TaskManager::TaskStatus_b TaskManager::StateDto::addTask(TaskDto t)
 {
     if (!itsCreated(t.getTitle()))
     {
@@ -10,10 +10,10 @@ TaskManager::TaskStatus TaskManager::StateDto::addTask(TaskDto t)
 
     }
 
-    return TaskManager::TaskStatus("Tarea con el nombre [" + t.getTitle() + "] ya creada", false);
+    return TaskManager::TaskStatus_b("Tarea con el nombre [" + t.getTitle() + "] ya creada", false);
 }
 
-TaskManager::TaskStatus TaskManager::StateDto::removeTask(string title)
+TaskManager::TaskStatus_b TaskManager::StateDto::removeState(string title)
 {
     for(int i = 0; i < task.size(); i++)
     {
@@ -24,7 +24,7 @@ TaskManager::TaskStatus TaskManager::StateDto::removeTask(string title)
         }
     }
 
-    return TaskManager::TaskStatus("Tarea con el nombre [" + title + "] no encotrada", false);
+    return TaskManager::TaskStatus_b("Tarea con el nombre [" + title + "] no encotrada para eliminar", false);
 }
 
 TaskManager::TaskDto* TaskManager::StateDto::getTask(string t)

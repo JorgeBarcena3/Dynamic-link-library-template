@@ -1,11 +1,11 @@
 #include "../headers/PanelExporter.hpp"
 
-TaskManager::TaskStatus TaskManager::PanelExporter::exportPanel(std::string directory)
+TaskManager::TaskStatus_b TaskManager::PanelExporter::exportPanel(std::string directory)
 {
     return true;
 }
 
-TaskManager::TaskStatus TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)
+TaskManager::TaskStatus_b TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
     return true;
 }

@@ -21,6 +21,10 @@
 #include "Aplication.hpp"
 #include "TaskStatus.hpp"
 
+namespace lua
+{
+    class State;
+}
 
 namespace TaskManager
 {
@@ -32,7 +36,7 @@ namespace TaskManager
 
     public:
 
-        virtual TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting);
+        virtual TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting);
 
     };
 }

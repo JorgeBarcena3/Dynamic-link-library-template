@@ -23,15 +23,17 @@
 #define LUA_COMPAT_APIINTCASTS
 
 #include <string>
-#include <LuaState.h>
+#include <vector>
 #include "Component.hpp"
 
 using namespace std;
 
+
 namespace TaskManager
 {
-
     class PanelDto;
+    class TaskDto;
+    class StateDto;
 
     class TASKMANAGERAPI PanelManager : public Component
     {
@@ -44,19 +46,30 @@ namespace TaskManager
 
     public:
 
+        PanelManager() : currentPanelId(-1) { };
+
         inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
 
-        TaskStatus addState(string title);
+        TaskStatus_b addState(string title);
 
-        TaskStatus addTaskToState(string stateTitle, string t, string d, string a);
+        TaskStatus_b addTaskToState(string stateTitle, string t, string d, string a);
 
-        TaskStatus removeTaskofState(string stateTitle, string t);
+        TaskStatus_b removeTaskofState(string stateTitle, string t);
 
-        TaskStatus changeTaskToState(string stateTile, string t, string toStateTitle);
+        TaskStatus_b changeTaskToState(string stateTile, string t, string toStateTitle);
 
-        TaskStatus removeTask(string t);
+        TaskStatus_b removeState(string t);
 
-        TaskStatus initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+        TaskStatus_b createPanel(string t);
+
+        TaskStatus_b changeToPanel(string t);
+
+        TaskStatus<vector<TaskDto* >> getTaskFromState(string t);
+
+        TaskStatus<vector<StateDto* >> getStatesFromPanel(string t);
+
+        TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+
 
     };
 
