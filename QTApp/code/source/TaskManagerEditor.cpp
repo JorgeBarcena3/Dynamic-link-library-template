@@ -1,7 +1,9 @@
 #include "../headers/TaskManagerEditor.h"
 
 TaskManagerEditor::TaskManagerEditor(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), menuActions(this, &ui)
 {
-    ui.setupUi(this);
+
+    
+    
 }

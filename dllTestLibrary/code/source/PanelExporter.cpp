@@ -4,16 +4,68 @@
 #include <fstream>
 #include <sstream>
 #include <ctime>
+#include <string>
 #include "../headers/Aplication.hpp"
 #include "../headers/PanelManager.hpp"
+#include <bitset>
 
 
 using namespace rapidxml;
 
 
+TaskManager::TaskStatus_b TaskManager::PanelExporter::exportDataAsXML(std::string directory)
+{
+
+    string xml = createXML();
+
+    // Save to file
+    std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.xml").c_str());
+
+    if (file_stored.is_open())
+    {
+
+        file_stored << xml;
+        file_stored.close();
+
+    }
+
+    return true;
+}
+
 TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string directory)
 {
 
+    string data = createXML();
+
+    string binarydata;
+
+    for (char& _char : data)
+    {
+
+        binarydata += bitset<8>(_char).to_string();
+    }
+
+    // Save to file
+    std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.sav").c_str());
+
+    if (file_stored.is_open())
+    {
+
+        file_stored << binarydata;
+        file_stored.close();
+
+    }
+
+    return true;
+}
+
+TaskManager::TaskStatus_b TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)
+{
+    return true;
+}
+
+string TaskManager::PanelExporter::createXML()
+{
     // Datos a extraer
     PanelManager* manager = (PanelManager*)Aplication::instance()->getComponent("PanelManager");
 
@@ -35,11 +87,11 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
     for (auto panel : manager->getAllPanels().getReturnObj())
     {
         xml_node<>* panel_node = doc.allocate_node(node_element, "Panel");
-        panel_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string( panel->getTitle().c_str())));
+        panel_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string(panel->getTitle().c_str())));
 
         for (auto state : manager->getStatesFromPanel(panel->getTitle()).getReturnObj())
         {
-            xml_node<> * state_node = doc.allocate_node(node_element, "State");
+            xml_node<>* state_node = doc.allocate_node(node_element, "State");
             state_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string(state->getTitle().c_str())));
             auto name = state->getTitle();
 
@@ -47,20 +99,20 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
             {
                 xml_node<>* task_node = doc.allocate_node(node_element, "Task");
 
-                xml_node<>* title_node  = doc.allocate_node(node_element, "Title");
+                xml_node<>* title_node = doc.allocate_node(node_element, "Title");
                 title_node->value(doc.allocate_string(task->getTitle().c_str()));
                 task_node->append_node(title_node);
 
-                xml_node<>* descp_node  = doc.allocate_node(node_element, "Description");
+                xml_node<>* descp_node = doc.allocate_node(node_element, "Description");
                 descp_node->value(doc.allocate_string(task->getDescription().c_str()));
                 task_node->append_node(descp_node);
 
                 xml_node<>* assing_node = doc.allocate_node(node_element, "Assign");
-                assing_node->value (doc.allocate_string(task->getAssigned().c_str()));
+                assing_node->value(doc.allocate_string(task->getAssigned().c_str()));
                 task_node->append_node(assing_node);
 
-                xml_node<>* date_node   = doc.allocate_node(node_element, "Date");
-                date_node->value (doc.allocate_string(to_string( task->getCreationDate()).c_str()));
+                xml_node<>* date_node = doc.allocate_node(node_element, "Date");
+                date_node->value(doc.allocate_string(to_string(task->getCreationDate()).c_str()));
                 task_node->append_node(date_node);
 
 
@@ -76,25 +128,11 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
 
     }
 
-
-    // Save to file
-    std::ofstream file_stored(string(directory + to_string( time(0) ) + "_file.xml").c_str());
-
-    if (file_stored.is_open())
-    {
-
-        file_stored << doc;
-        file_stored.close();
-
-    }
+    std::stringstream ss;
+    ss << doc;
+    std::string result_xml = ss.str();
 
     doc.clear();
 
-
-    return true;
-}
-
-TaskManager::TaskStatus_b TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)
-{
-    return true;
+    return result_xml;
 }

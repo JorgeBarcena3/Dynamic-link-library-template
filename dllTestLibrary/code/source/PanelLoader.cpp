@@ -1,26 +1,79 @@
 #include "rapidxml.hpp"
 #include "rapidxml_utils.hpp"
+#include <sstream>
+#include <string>
+#include <fstream>
+
 #include "../headers/PanelLoader.hpp"
 #include "../headers/LuaScripting.hpp"
 #include "../headers/PanelManager.hpp"
+#include <bitset>
 
-TaskManager::TaskStatus_b TaskManager::PanelLoader::loadPanel(std::string path)
+TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanelAsXML(std::string path)
 {
+       
+    rapidxml::file<> xmlFile(path.c_str());
+    parseXML(xmlFile.data());
 
+    return true;
+}
+
+TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanel(std::string path)
+{
+    std::string data = "";
+
+    string line;
+    ifstream myfile(path);
+
+    if (myfile.is_open())
+    {
+        while (std::getline(myfile, line))
+        {
+            data += line;
+        }
+
+        myfile.close();
+    }
+
+    std::stringstream sstream(data);
+    std::string output;
+
+    while (sstream.good())
+    {
+        std::bitset<8> bits;
+        sstream >> bits;
+        char c = char(bits.to_ulong());
+        output += c;
+    }
+
+    parseXML(const_cast<char*>(output.c_str()));
+
+
+    return true;
+}
+
+TaskManager::TaskStatus_b TaskManager::PanelLoader::initializeLuaScripting(TaskManager::LuaScripting& scripting)
+{
+    //scripting.vm->set("loadScene", [this](const char* path) {this->loadScene(path);  });
+
+    return true;
+}
+
+TaskManager::TaskStatus_b TaskManager::PanelLoader::parseXML(char * data)
+{
     // Donde debemos guardar la informacion
     PanelManager* manager = (PanelManager*)Aplication::instance()->getComponent("PanelManager");
     manager->removeAllPanels();
 
-    rapidxml::file<> xmlFile(path.c_str());
     rapidxml::xml_document<> doc;
-    doc.parse<0>(xmlFile.data());
+    doc.parse<0>(data);
 
     auto rootNode = doc.first_node();
     TaskStatus_b err(false);
 
     for (rapidxml::xml_node<>* panelNode = rootNode->first_node(); panelNode; panelNode = panelNode->next_sibling()) //Son las entidades
     {
-        string panel_title (panelNode->first_attribute("Title")->value());
+        string panel_title(panelNode->first_attribute("Title")->value());
         err = manager->createPanel(panel_title);
         err = manager->changeToPanel(panel_title);
 
@@ -36,26 +89,26 @@ TaskManager::TaskStatus_b TaskManager::PanelLoader::loadPanel(std::string path)
                 string task_descp;
                 string task_assing;
                 string task_date;
-                
+
                 for (rapidxml::xml_node<>* task_atr = taskNode->first_node(); task_atr; task_atr = task_atr->next_sibling()) //Son las entidades
                 {
-                    string attr_name  = task_atr->name();
+                    string attr_name = task_atr->name();
                     string attr_value = task_atr->value();
 
                     if (attr_name == "Title")
                     {
                         task_title = attr_value;
-                    } 
+                    }
                     else if (attr_name == "Description")
                     {
                         task_descp = attr_value;
 
-                    } 
+                    }
                     else if (attr_name == "Assign")
                     {
                         task_assing = attr_value;
 
-                    } 
+                    }
                     else if (attr_name == "Date")
                     {
                         task_date = attr_value;
@@ -69,13 +122,6 @@ TaskManager::TaskStatus_b TaskManager::PanelLoader::loadPanel(std::string path)
         }
     }
 
-
-    return true;
-}
-
-TaskManager::TaskStatus_b TaskManager::PanelLoader::initializeLuaScripting(TaskManager::LuaScripting& scripting)
-{
-    //scripting.vm->set("loadScene", [this](const char* path) {this->loadScene(path);  });
 
     return true;
 }

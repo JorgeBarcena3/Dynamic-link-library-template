@@ -32,9 +32,15 @@ namespace TaskManager
 
     public:
 
+        TaskStatus_b exportDataAsXML(std::string directory);
+
         TaskStatus_b exportData(std::string directory);
 
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+
+    private:
+
+        string createXML();
 
     };
 

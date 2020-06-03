@@ -35,12 +35,18 @@
     <QtMoc Include="..\..\..\code\headers\TaskManagerEditor.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="MenuActions.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\code\source\TaskManagerEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\code\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuActions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

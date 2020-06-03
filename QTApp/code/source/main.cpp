@@ -22,7 +22,7 @@ void errorOk(TaskStatus_b& err)
     }
 }
 
-void showThings(PanelManager& manager)
+void showThings(TaskManager::PanelManager& manager)
 {
     auto a = manager.getStatesFromPanel("Test");
 
@@ -45,25 +45,10 @@ int main(int argc, char *argv[])
 
     Aplication* aplication_ = Aplication::instance();
 
-    PanelLoader* panelLoader = (PanelLoader*)aplication_->getComponent("PanelLoader");
-
-    TaskStatus_b err(false);
-
-    err = panelLoader->loadPanel("exampleData.xml");
-
-    PanelManager* manager = (PanelManager*)aplication_->getComponent("PanelManager");
-
-    showThings(*manager);
-
-    system("pause");
-    system("cls");
-
-    PanelExporter* ex = ((PanelExporter*)aplication_->getComponent("PanelExporter"));
-    err = ex->exportData("exportationData/");
-    errorOk(err);
 
     QApplication a(argc, argv);
     TaskManagerEditor w;
     w.show();
+    
     return a.exec();
 }

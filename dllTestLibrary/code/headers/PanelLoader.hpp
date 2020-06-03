@@ -32,9 +32,15 @@ namespace TaskManager
 
     public:
 
-        TaskStatus_b loadPanel(std::string path);
+        TaskStatus_b importPanelAsXML(std::string path);
+
+        TaskStatus_b importPanel(std::string path);
 
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
+
+    private:
+
+        TaskStatus_b parseXML(char* data);
 
     };
 
