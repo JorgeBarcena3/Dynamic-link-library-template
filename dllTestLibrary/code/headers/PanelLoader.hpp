@@ -23,7 +23,6 @@
 #define LUA_COMPAT_APIINTCASTS
 
 #include <string>
-#include <LuaState.h>
 #include "Component.hpp"
 
 namespace TaskManager

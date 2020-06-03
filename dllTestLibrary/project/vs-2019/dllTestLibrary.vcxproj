@@ -69,8 +69,8 @@
       <AdditionalDependencies>lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../demo/project/vs-2019"
-xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Command>
+      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../QTApp/project/vs-2019/TaskManagerEditor"
+xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../QTApp/lib/$(ProjectName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -94,8 +94,8 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Co
       <AdditionalDependencies>lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../demo/project/vs-2019"
-xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../demo/lib/$(ProjectName)"</Command>
+      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../QTApp/project/vs-2019/TaskManagerEditor"
+xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../QTApp/lib/$(ProjectName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

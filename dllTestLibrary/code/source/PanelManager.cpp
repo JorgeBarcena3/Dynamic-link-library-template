@@ -7,18 +7,32 @@
 
 using namespace TaskManager;
 
+TaskStatus_b TaskManager::PanelManager::removeAllPanels()
+{
+    currentPanelId = 0;
+
+    for (auto panel : panels)
+    {
+        delete panel;
+    }
+
+    panels.clear();
+
+    return true;
+}
+
 TaskStatus_b TaskManager::PanelManager::addState(string title)
 {
     return panels[currentPanelId]->addState(StateDto(title, panels[currentPanelId]));
 }
 
-TaskStatus_b TaskManager::PanelManager::addTaskToState(string stateTitle, string t, string d, string a)
+TaskStatus_b TaskManager::PanelManager::addTaskToState(string stateTitle, string t, string d, string a, string date)
 {
     auto s = panels[currentPanelId]->getState(stateTitle);
 
     if (s)
     {
-        return s->addTask(TaskDto(t, d, a));
+        return s->addTask(TaskDto(t, d, a, date != "EMPTY" ? time_t(stoi(date)) : time(0)));
     }
 
     return TaskManager::TaskStatus_b("Estado con el titlulo [" + stateTitle + "] no encontrado", false);

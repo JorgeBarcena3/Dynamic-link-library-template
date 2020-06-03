@@ -50,7 +50,7 @@ namespace TaskManager
 
     public:
 
-        TaskDto(string tit, string descp, string assign)
+        TaskDto(string tit, string descp, string assign, time_t creation)
         {
             static int global_id = 0;
 
@@ -59,7 +59,7 @@ namespace TaskManager
             title = tit;
             description = descp;
             assigned = assign;
-            creationDate = time(0);
+            creationDate = creation;
 
         }
 

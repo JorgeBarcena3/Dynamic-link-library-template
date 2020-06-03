@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "Demo.vcxproj", "{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TaskManagerEditor", "TaskManagerEditor.vcxproj", "{82C7650A-04B2-489C-9BEC-785887E19EB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Debug|x64.ActiveCfg = Debug|x64
-		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Debug|x64.Build.0 = Debug|x64
-		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Release|x64.ActiveCfg = Release|x64
-		{88BCD3E7-B291-4CA0-98E0-D0F198B86D57}.Release|x64.Build.0 = Release|x64
+		{82C7650A-04B2-489C-9BEC-785887E19EB4}.Debug|x64.ActiveCfg = Debug|x64
+		{82C7650A-04B2-489C-9BEC-785887E19EB4}.Debug|x64.Build.0 = Debug|x64
+		{82C7650A-04B2-489C-9BEC-785887E19EB4}.Release|x64.ActiveCfg = Release|x64
+		{82C7650A-04B2-489C-9BEC-785887E19EB4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B6B03522-B9DB-4083-9F8C-7F5F72D03460}
+		SolutionGuid = {CEF54143-0AFD-4972-A4BB-B014CEAA4D65}
 	EndGlobalSection
 EndGlobal

@@ -48,11 +48,13 @@ namespace TaskManager
 
         PanelManager() : currentPanelId(-1) { };
 
+        TaskStatus_b removeAllPanels();
+
         inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
 
         TaskStatus_b addState(string title);
 
-        TaskStatus_b addTaskToState(string stateTitle, string t, string d, string a);
+        TaskStatus_b addTaskToState(string stateTitle, string t, string d, string a, string date = "EMPTY");
 
         TaskStatus_b removeTaskofState(string stateTitle, string t);
 

@@ -3,6 +3,7 @@
 #include "rapidxml_ext.hpp"
 #include <fstream>
 #include <sstream>
+#include <ctime>
 #include "../headers/Aplication.hpp"
 #include "../headers/PanelManager.hpp"
 
@@ -75,17 +76,14 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
 
     }
 
-    // Convert doc to string if needed
-    std::string xml_as_string;
-    rapidxml::print(std::back_inserter(xml_as_string), doc);
 
     // Save to file
-    std::ofstream file_stored("file_stored.xml");
+    std::ofstream file_stored(string(directory + to_string( time(0) ) + "_file.xml").c_str());
 
     if (file_stored.is_open())
     {
 
-        file_stored << xml_as_string;
+        file_stored << doc;
         file_stored.close();
 
     }
