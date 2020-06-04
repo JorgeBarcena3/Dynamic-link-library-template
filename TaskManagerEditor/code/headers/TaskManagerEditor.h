@@ -11,18 +11,17 @@ class TaskManagerEditor : public QMainWindow
 
 public:
 
+    static TaskManagerEditor * instance;
+
     static TaskManagerEditor* getInstance()
     {
-        static TaskManagerEditor instance;
 
-        return &instance;
+        return instance;
     }
 
-private:
+public:
 
     TaskManagerEditor(QWidget* parent = Q_NULLPTR);
-
-public:
 
     void showError(TaskManager::TaskStatus_b a);
 

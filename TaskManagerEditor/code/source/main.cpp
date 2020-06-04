@@ -7,8 +7,8 @@ int main(int argc, char *argv[])
     
 
     QApplication a(argc, argv);
-    TaskManagerEditor * mainWindow = TaskManagerEditor::getInstance();
-    mainWindow->show();
+    TaskManagerEditor mainWindow;
+    mainWindow.show();
     
     return a.exec();
 }

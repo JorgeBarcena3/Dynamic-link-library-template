@@ -8,8 +8,17 @@ TaskManager::LuaScripting::LuaScripting()
 
 }
 
-void TaskManager::LuaScripting::exec(const std::string& luaCode)
+TaskManager::TaskStatus_b TaskManager::LuaScripting::exec(const std::string& luaCode)
 {
-    vm->doString(luaCode);
+    try
+    {
+        vm->doString(luaCode);
+        return true;
+    }
+    catch (exception e)
+    {
+
+        return TaskManager::TaskStatus_b("Revise el codigo ejecutado", false);
+    }
 }
 

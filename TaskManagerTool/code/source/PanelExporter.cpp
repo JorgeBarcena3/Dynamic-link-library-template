@@ -15,48 +15,59 @@ using namespace rapidxml;
 
 TaskManager::TaskStatus_b TaskManager::PanelExporter::exportDataAsXML(std::string directory)
 {
-
-    string xml = createXML();
-
-    // Save to file
-    std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.xml").c_str());
-
-    if (file_stored.is_open())
+    try
     {
+        string xml = createXML();
 
-        file_stored << xml;
-        file_stored.close();
+        // Save to file
+        std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.xml").c_str());
 
+        if (file_stored.is_open())
+        {
+
+            file_stored << xml;
+            file_stored.close();
+
+        }
+
+        return true;
     }
-
-    return true;
+    catch (exception e)
+    {
+        return (e.what(), false);
+    }
 }
 
 TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string directory)
 {
+    try {
+        string data = createXML();
 
-    string data = createXML();
+        string binarydata;
 
-    string binarydata;
+        for (char& _char : data)
+        {
 
-    for (char& _char : data)
-    {
+            binarydata += bitset<8>(_char).to_string();
+        }
 
-        binarydata += bitset<8>(_char).to_string();
+        // Save to file
+        std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.sav").c_str());
+
+        if (file_stored.is_open())
+        {
+
+            file_stored << binarydata;
+            file_stored.close();
+
+        }
+
+        return true;
     }
-
-    // Save to file
-    std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.sav").c_str());
-
-    if (file_stored.is_open())
+    catch (exception e)
     {
-
-        file_stored << binarydata;
-        file_stored.close();
-
+        return (e.what(), false);
     }
-
-    return true;
 }
 
 TaskManager::TaskStatus_b TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)

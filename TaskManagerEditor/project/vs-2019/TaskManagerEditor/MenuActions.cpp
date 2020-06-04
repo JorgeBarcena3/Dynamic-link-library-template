@@ -9,6 +9,7 @@
 #include <QDesktopServices>
 #include <qinputdialog.h>
 #include <fstream>
+#include "../../../code/headers/TaskManagerEditor.h"
 
 
 MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
@@ -32,6 +33,7 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
 
 MenuActions::~MenuActions()
 {
+
 }
 
 void MenuActions::save(bool triggered)
@@ -39,21 +41,21 @@ void MenuActions::save(bool triggered)
     if (defaultPath == "")
         defaultPath = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
 
-    TaskManager::TaskStatus_b err = panelExporter->exportData(defaultPath.toUtf8().constData());
+    checkError(panelExporter->exportData(defaultPath.toUtf8().constData()));
 }
 
 void MenuActions::saveAs(bool triggered)
 {
     defaultPath = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
 
-    TaskManager::TaskStatus_b err = panelExporter->exportData(defaultPath.toUtf8().constData());
+    checkError( panelExporter->exportData(defaultPath.toUtf8().constData()) );
 }
 
 void MenuActions::exportXML(bool triggered)
 {
     QString filenames = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
 
-    TaskManager::TaskStatus_b err = panelExporter->exportDataAsXML(filenames.toUtf8().constData());
+    checkError( panelExporter->exportDataAsXML(filenames.toUtf8().constData()));
 
 }
 
@@ -62,7 +64,7 @@ void MenuActions::importXML(bool triggered)
     QStringList filenames = QFileDialog::getOpenFileNames(this, "Determine un archivo que abrir", QDir::currentPath(), "XML files (*.xml)");
 
     if (filenames.size() > 0)
-        TaskManager::TaskStatus_b err = panelLoader->importPanelAsXML(filenames[0].toUtf8().constData());
+        checkError( panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()) );
 }
 
 void MenuActions::openGitHub(bool triggered)
@@ -111,7 +113,7 @@ void MenuActions::executeLuaCode(QString code)
 {
 
     static TaskManager::LuaScripting* scripting = (TaskManager::LuaScripting*) TaskManager::Aplication::instance()->getComponent("scriptingComponent");
-    scripting->exec(code.toUtf8().constData());
+    checkError(scripting->exec(code.toUtf8().constData()));
 
 }
 
@@ -135,12 +137,20 @@ QString MenuActions::readFile(QString path)
     return QString(data.c_str());
 }
 
+
+
 void MenuActions::load(bool triggered)
 {
 
     QStringList filenames = QFileDialog::getOpenFileNames(this, "Determine un archivo que abrir", QDir::currentPath(), "SAV files (*.sav)");
 
     if (filenames.size() > 0)
-        TaskManager::TaskStatus_b err = panelLoader->importPanel(filenames[0].toUtf8().constData());
+    {
+        checkError(panelLoader->importPanel(filenames[0].toUtf8().constData()));
+    }
+}
 
+void MenuActions::checkError(TaskManager::TaskStatus_b err)
+{
+    TaskManagerEditor::getInstance()->showError(err);
 }

@@ -3,7 +3,7 @@
 #include <qwidget.h>
 #include <QObject>
 #include <ui_TaskManagerEditor.h>
-
+#include <TaskStatus.hpp>
 
 namespace TaskManager
 {
@@ -11,7 +11,6 @@ namespace TaskManager
     class PanelLoader;
     class PanelManager;
     class PanelExporter;
-
 }
 
 class MenuActions : public QWidget
@@ -21,9 +20,9 @@ class MenuActions : public QWidget
 private:
 
     
-    TaskManager::PanelLoader* panelLoader;
-    TaskManager::PanelManager* manager;
-    TaskManager::PanelExporter* panelExporter;
+    TaskManager::PanelLoader   * panelLoader;
+    TaskManager::PanelManager  * manager;
+    TaskManager::PanelExporter * panelExporter;
 
     QString defaultPath;
 
@@ -58,5 +57,7 @@ private:
     void executeLuaCode(QString code);
 
     QString readFile(QString path);
+
+    void checkError(TaskManager::TaskStatus_b err);
 
 };

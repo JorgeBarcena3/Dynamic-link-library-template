@@ -11,11 +11,17 @@
 
 TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanelAsXML(std::string path)
 {
-       
-    rapidxml::file<> xmlFile(path.c_str());
-    parseXML(xmlFile.data());
+    try
+    {
+        rapidxml::file<> xmlFile(path.c_str());
+        parseXML(xmlFile.data());
 
-    return true;
+        return true;
+    }
+    catch (exception e)
+    {
+        return (e.what(), false);
+    }
 }
 
 TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanel(std::string path)
@@ -59,7 +65,7 @@ TaskManager::TaskStatus_b TaskManager::PanelLoader::initializeLuaScripting(TaskM
     return true;
 }
 
-TaskManager::TaskStatus_b TaskManager::PanelLoader::parseXML(char * data)
+TaskManager::TaskStatus_b TaskManager::PanelLoader::parseXML(char* data)
 {
     // Donde debemos guardar la informacion
     PanelManager* manager = (PanelManager*)Aplication::instance()->getComponent("PanelManager");
