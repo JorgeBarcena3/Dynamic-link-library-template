@@ -20,7 +20,7 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportDataAsXML(std::strin
         string xml = createXML();
 
         // Save to file
-        std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.xml").c_str());
+        std::ofstream file_stored(string(directory).c_str());
 
         if (file_stored.is_open())
         {
@@ -52,7 +52,7 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
         }
 
         // Save to file
-        std::ofstream file_stored(string(directory + "/" + to_string(time(0)) + "_file.sav").c_str());
+        std::ofstream file_stored(string(directory).c_str());
 
         if (file_stored.is_open())
         {

@@ -39,21 +39,21 @@ MenuActions::~MenuActions()
 void MenuActions::save(bool triggered)
 {
     if (defaultPath == "")
-        defaultPath = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
+        defaultPath = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "SAV files (*.sav)");
 
     checkError(panelExporter->exportData(defaultPath.toUtf8().constData()));
 }
 
 void MenuActions::saveAs(bool triggered)
 {
-    defaultPath = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
+    defaultPath = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "SAV files (*.sav)");
 
     checkError( panelExporter->exportData(defaultPath.toUtf8().constData()) );
 }
 
 void MenuActions::exportXML(bool triggered)
 {
-    QString filenames = QFileDialog::getExistingDirectory(this, "Determine donde quiere exportar el archivo", QDir::currentPath());
+    QString filenames = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "XML files (*.xml)");
 
     checkError( panelExporter->exportDataAsXML(filenames.toUtf8().constData()));
 
@@ -61,7 +61,7 @@ void MenuActions::exportXML(bool triggered)
 
 void MenuActions::importXML(bool triggered)
 {
-    QStringList filenames = QFileDialog::getOpenFileNames(this, "Determine un archivo que abrir", QDir::currentPath(), "XML files (*.xml)");
+    QStringList filenames = QFileDialog::getOpenFileNames(this, "Open file", QDir::currentPath(), "XML files (*.xml)");
 
     if (filenames.size() > 0)
         checkError( panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()) );
@@ -100,7 +100,7 @@ void MenuActions::executeLuaCommand(bool triggered)
 
 void MenuActions::executeLuaFile(bool triggered)
 {
-    QStringList filenames = QFileDialog::getOpenFileNames(this, "Determine un archivo que abrir", QDir::currentPath(), "LUA files (*.LUA)");
+    QStringList filenames = QFileDialog::getOpenFileNames(this, "Open File", QDir::currentPath(), "LUA files (*.LUA)");
 
     if (filenames.size() > 0)
     {
@@ -142,7 +142,7 @@ QString MenuActions::readFile(QString path)
 void MenuActions::load(bool triggered)
 {
 
-    QStringList filenames = QFileDialog::getOpenFileNames(this, "Determine un archivo que abrir", QDir::currentPath(), "SAV files (*.sav)");
+    QStringList filenames = QFileDialog::getOpenFileNames(this, "Open File", QDir::currentPath(), "SAV files (*.sav)");
 
     if (filenames.size() > 0)
     {
