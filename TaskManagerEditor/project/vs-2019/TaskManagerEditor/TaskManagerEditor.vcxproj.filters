@@ -27,6 +27,9 @@
     <QtUic Include="TaskManagerEditor.ui">
       <Filter>Resource Files</Filter>
     </QtUic>
+    <QtUic Include="qtstatewidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="TaskManagerEditor.qrc" />
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MenuActions.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="qtstatewidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -49,5 +55,16 @@
     <ClCompile Include="MenuActions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="qtpanelwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qtstatewidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="qtpanelwidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

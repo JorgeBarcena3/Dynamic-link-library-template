@@ -9,9 +9,11 @@ class TaskManagerEditor : public QMainWindow
 {
     Q_OBJECT
 
-public:
+private:
 
-    static TaskManagerEditor * instance;
+    static TaskManagerEditor* instance;
+
+public:
 
     static TaskManagerEditor* getInstance()
     {
@@ -24,6 +26,13 @@ public:
     TaskManagerEditor(QWidget* parent = Q_NULLPTR);
 
     void showError(TaskManager::TaskStatus_b a);
+
+    void refreshBoard();
+
+    inline Ui::TaskManagerEditorClass* getUI()
+    {
+        return &ui;
+    }
 
 private:
 

@@ -6,9 +6,9 @@ TEMPLATE = app
 TARGET = TaskManagerEditor
 DESTDIR = ../../../../vs-2019/x64/Debug
 CONFIG += debug
-LIBS += -L"./../../../lib/dllTestLibrary" \
+LIBS += -L"./../../../lib/TaskManagerTool" \
     -L"$(Qt_LIBPATH_)" \
-    -ldllTestLibrary \
+    -lTaskManagerTool \
     -l$(Qt_LIBS_)
 DEPENDPATH += .
 MOC_DIR += .

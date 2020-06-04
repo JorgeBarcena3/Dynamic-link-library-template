@@ -8,6 +8,7 @@ TaskManagerEditor::TaskManagerEditor(QWidget* parent)
     : QMainWindow(parent), menuActions(this, &ui)
 {
     TaskManagerEditor::instance = this;
+
 }
 
 void TaskManagerEditor::showError(TaskManager::TaskStatus_b a)
@@ -20,7 +21,11 @@ void TaskManagerEditor::showError(TaskManager::TaskStatus_b a)
         msgBox.setInformativeText(a.getError().c_str());
 
         msgBox.exec();
-
         
     }
+}
+
+void TaskManagerEditor::refreshBoard()
+{
+    ui.panelWidget->refreshData();
 }

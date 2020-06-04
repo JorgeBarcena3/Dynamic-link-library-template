@@ -101,6 +101,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="TaskManagerEditor.qrc" />
+    <QtUic Include="qtstatewidget.ui" />
     <QtUic Include="TaskManagerEditor.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -110,9 +111,15 @@
     <ClCompile Include="..\..\..\code\source\main.cpp" />
     <ClCompile Include="..\..\..\code\source\TaskManagerEditor.cpp" />
     <ClCompile Include="MenuActions.cpp" />
+    <ClCompile Include="qtpanelwidget.cpp" />
+    <ClCompile Include="qtstatewidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MenuActions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="qtpanelwidget.h" />
+    <QtMoc Include="qtstatewidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

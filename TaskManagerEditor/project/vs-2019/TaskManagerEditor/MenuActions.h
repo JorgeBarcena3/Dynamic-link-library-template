@@ -1,6 +1,6 @@
 #pragma once
 
-#include <qwidget.h>
+#include "QtWidgets/qwidget.h"
 #include <QObject>
 #include <ui_TaskManagerEditor.h>
 #include <TaskStatus.hpp>
@@ -50,6 +50,8 @@ public slots:
     void executeLuaCommand(bool triggered);
 
     void executeLuaFile(bool triggered);
+
+    void newFile(bool triggered);
 
 private:
 

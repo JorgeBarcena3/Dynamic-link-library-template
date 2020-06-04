@@ -29,6 +29,10 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
     connect(ui->actionLinkedin, SIGNAL(triggered(bool)), this, SLOT(openLinkedin(bool)));
     connect(ui->actionLua, SIGNAL(triggered(bool)), this, SLOT(executeLuaCommand(bool)));
     connect(ui->actionLuaFile, SIGNAL(triggered(bool)), this, SLOT(executeLuaFile(bool)));
+    connect(ui->actionNew, SIGNAL(triggered(bool)), this, SLOT(newFile(bool)));
+
+    ui->panelWidget->connectSignals(ui);
+
 }
 
 MenuActions::~MenuActions()
@@ -65,6 +69,9 @@ void MenuActions::importXML(bool triggered)
 
     if (filenames.size() > 0)
         checkError( panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()) );
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
 }
 
 void MenuActions::openGitHub(bool triggered)
@@ -82,6 +89,8 @@ void MenuActions::openLinkedin(bool triggered)
 
 void MenuActions::executeLuaCommand(bool triggered)
 {
+
+
     bool ok;
 
     QString text = QInputDialog::getMultiLineText(
@@ -109,11 +118,22 @@ void MenuActions::executeLuaFile(bool triggered)
 
 }
 
+void MenuActions::newFile(bool triggered)
+{
+    save(triggered);
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
+}
+
 void MenuActions::executeLuaCode(QString code)
 {
 
     static TaskManager::LuaScripting* scripting = (TaskManager::LuaScripting*) TaskManager::Aplication::instance()->getComponent("scriptingComponent");
     checkError(scripting->exec(code.toUtf8().constData()));
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
 
 }
 
@@ -146,8 +166,12 @@ void MenuActions::load(bool triggered)
 
     if (filenames.size() > 0)
     {
-        checkError(panelLoader->importPanel(filenames[0].toUtf8().constData()));
+        defaultPath = filenames[0].toUtf8().constData();
+        checkError(panelLoader->importPanel(defaultPath.toUtf8().constData()));
     }
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
 }
 
 void MenuActions::checkError(TaskManager::TaskStatus_b err)
