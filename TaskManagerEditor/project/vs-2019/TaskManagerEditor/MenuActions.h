@@ -55,6 +55,9 @@ public slots:
 
 private:
 
+    void activeFileButtons(Ui::TaskManagerEditorClass* ui);
+
+    void desactiveFileButtons(Ui::TaskManagerEditorClass * ui);
 
     void executeLuaCode(QString code);
 

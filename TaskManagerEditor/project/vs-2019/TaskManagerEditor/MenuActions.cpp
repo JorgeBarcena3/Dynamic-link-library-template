@@ -30,8 +30,11 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
     connect(ui->actionLua, SIGNAL(triggered(bool)), this, SLOT(executeLuaCommand(bool)));
     connect(ui->actionLuaFile, SIGNAL(triggered(bool)), this, SLOT(executeLuaFile(bool)));
     connect(ui->actionNew, SIGNAL(triggered(bool)), this, SLOT(newFile(bool)));
+    connect(ui->actionClose, SIGNAL(triggered(bool)), parent, SLOT(close()));
 
     ui->panelWidget->connectSignals(ui);
+
+    desactiveFileButtons(ui);
 
 }
 
@@ -71,6 +74,7 @@ void MenuActions::importXML(bool triggered)
         checkError( panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()) );
 
     TaskManagerEditor::getInstance()->refreshBoard();
+    activeFileButtons( TaskManagerEditor::getInstance()->getUI() );
 
 }
 
@@ -124,6 +128,33 @@ void MenuActions::newFile(bool triggered)
 
     TaskManagerEditor::getInstance()->refreshBoard();
 
+    activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+
+
+}
+
+void MenuActions::activeFileButtons(Ui::TaskManagerEditorClass* ui)
+{
+    ui->actionXML_Export ->setEnabled(true);
+    ui->actionSave       ->setEnabled(true);
+    ui->actionSave_as    ->setEnabled(true);
+    ui->actionLua        ->setEnabled(true);
+    ui->actionLuaFile    ->setEnabled(true);
+    ui->actionNew_Panel  ->setEnabled(true);
+    ui->actionRefresh    ->setEnabled(true);
+}
+
+void MenuActions::desactiveFileButtons(Ui::TaskManagerEditorClass* ui)
+{
+    //ui->actionOpen->;
+
+    ui->actionXML_Export ->setEnabled(false);
+    ui->actionSave       ->setEnabled(false);
+    ui->actionSave_as    ->setEnabled(false);
+    ui->actionLua        ->setEnabled(false);
+    ui->actionLuaFile    ->setEnabled(false);
+    ui->actionNew_Panel  ->setEnabled(false);
+    ui->actionRefresh    ->setEnabled(false);
 }
 
 void MenuActions::executeLuaCode(QString code)
@@ -171,6 +202,8 @@ void MenuActions::load(bool triggered)
     }
 
     TaskManagerEditor::getInstance()->refreshBoard();
+    activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+
 
 }
 

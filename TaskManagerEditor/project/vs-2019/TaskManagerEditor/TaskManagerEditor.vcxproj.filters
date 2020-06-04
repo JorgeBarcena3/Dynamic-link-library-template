@@ -27,7 +27,13 @@
     <QtUic Include="TaskManagerEditor.ui">
       <Filter>Resource Files</Filter>
     </QtUic>
-    <QtUic Include="qtstatewidget.ui">
+    <QtUic Include="QTPanelWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QTStateWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QTaskWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -41,7 +47,13 @@
     <QtMoc Include="MenuActions.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="qtstatewidget.h">
+    <QtMoc Include="QTPanelWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QTStateWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QTaskWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -55,15 +67,21 @@
     <ClCompile Include="MenuActions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="qtpanelwidget.cpp">
+    <ClCompile Include="QTApplicationWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="qtstatewidget.cpp">
+    <ClCompile Include="QTPanelWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QTStateWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QTaskWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="qtpanelwidget.h">
+    <ClInclude Include="QTApplicationWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

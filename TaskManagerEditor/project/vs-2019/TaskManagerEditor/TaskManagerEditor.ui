@@ -17,6 +17,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>720</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>TaskManagerEditor</string>
   </property>
@@ -38,7 +44,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTPanelWidget" name="panelWidget">
+     <widget class="QTApplicationWidget" name="panelWidget">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(238, 242, 255);</string>
       </property>
@@ -149,6 +155,8 @@
    <addaction name="separator"/>
    <addaction name="actionXML_Export"/>
    <addaction name="actionXML_Import"/>
+   <addaction name="separator"/>
+   <addaction name="actionClose"/>
   </widget>
   <action name="actionGithub">
    <property name="text">
@@ -298,31 +306,14 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>QTPanelWidget</class>
+   <class>QTApplicationWidget</class>
    <extends>QTabWidget</extends>
-   <header>qtpanelwidget.h</header>
+   <header>QTApplicationWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
   <include location="TaskManagerEditor.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>actionClose</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>TaskManagerEditorClass</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>539</x>
-     <y>359</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

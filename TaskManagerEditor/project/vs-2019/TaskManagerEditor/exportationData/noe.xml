@@ -322,7 +322,651 @@
 			</Task>
 		</State>
 	</Panel>
-	<Panel Title="Test 2">
+	<Panel Title="Nuevo Panel">
+		<State Title="State 0">
+			<Task>
+				<Title>Tarea 00</Title>
+				<Description>Descripcion 00</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 01</Title>
+				<Description>Descripcion 01</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 03</Title>
+				<Description>Descripcion 03</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 04</Title>
+				<Description>Descripcion 04</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 1">
+			<Task>
+				<Title>Tarea 10</Title>
+				<Description>Descripcion 10</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 11</Title>
+				<Description>Descripcion 11</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 12</Title>
+				<Description>Descripcion 12</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 13</Title>
+				<Description>Descripcion 13</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 14</Title>
+				<Description>Descripcion 14</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 2">
+			<Task>
+				<Title>Tarea 20</Title>
+				<Description>Descripcion 20</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 21</Title>
+				<Description>Descripcion 21</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 22</Title>
+				<Description>Descripcion 22</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 23</Title>
+				<Description>Descripcion 23</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 24</Title>
+				<Description>Descripcion 24</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 3">
+			<Task>
+				<Title>Tarea 30</Title>
+				<Description>Descripcion 30</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 31</Title>
+				<Description>Descripcion 31</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 32</Title>
+				<Description>Descripcion 32</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 33</Title>
+				<Description>Descripcion 33</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 34</Title>
+				<Description>Descripcion 34</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 02</Title>
+				<Description>Descripcion 02</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 4">
+			<Task>
+				<Title>Tarea 40</Title>
+				<Description>Descripcion 40</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 41</Title>
+				<Description>Descripcion 41</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 42</Title>
+				<Description>Descripcion 42</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 43</Title>
+				<Description>Descripcion 43</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 44</Title>
+				<Description>Descripcion 44</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 5">
+			<Task>
+				<Title>Tarea 50</Title>
+				<Description>Descripcion 50</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 51</Title>
+				<Description>Descripcion 51</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 52</Title>
+				<Description>Descripcion 52</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 53</Title>
+				<Description>Descripcion 53</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 54</Title>
+				<Description>Descripcion 54</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 6">
+			<Task>
+				<Title>Tarea 60</Title>
+				<Description>Descripcion 60</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 61</Title>
+				<Description>Descripcion 61</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 62</Title>
+				<Description>Descripcion 62</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 63</Title>
+				<Description>Descripcion 63</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 64</Title>
+				<Description>Descripcion 64</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 7">
+			<Task>
+				<Title>Tarea 70</Title>
+				<Description>Descripcion 70</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 71</Title>
+				<Description>Descripcion 71</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 72</Title>
+				<Description>Descripcion 72</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 73</Title>
+				<Description>Descripcion 73</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 74</Title>
+				<Description>Descripcion 74</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 8">
+			<Task>
+				<Title>Tarea 80</Title>
+				<Description>Descripcion 80</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 81</Title>
+				<Description>Descripcion 81</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 82</Title>
+				<Description>Descripcion 82</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 83</Title>
+				<Description>Descripcion 83</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 84</Title>
+				<Description>Descripcion 84</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 9">
+			<Task>
+				<Title>Tarea 90</Title>
+				<Description>Descripcion 90</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 91</Title>
+				<Description>Descripcion 91</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 92</Title>
+				<Description>Descripcion 92</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 93</Title>
+				<Description>Descripcion 93</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 94</Title>
+				<Description>Descripcion 94</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+	</Panel>
+	<Panel Title="Test 4">
+		<State Title="State 0">
+			<Task>
+				<Title>Tarea 00</Title>
+				<Description>Descripcion 00</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 01</Title>
+				<Description>Descripcion 01</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 03</Title>
+				<Description>Descripcion 03</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 04</Title>
+				<Description>Descripcion 04</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 1">
+			<Task>
+				<Title>Tarea 10</Title>
+				<Description>Descripcion 10</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 11</Title>
+				<Description>Descripcion 11</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 12</Title>
+				<Description>Descripcion 12</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 13</Title>
+				<Description>Descripcion 13</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 14</Title>
+				<Description>Descripcion 14</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 2">
+			<Task>
+				<Title>Tarea 20</Title>
+				<Description>Descripcion 20</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 21</Title>
+				<Description>Descripcion 21</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 22</Title>
+				<Description>Descripcion 22</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 23</Title>
+				<Description>Descripcion 23</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 24</Title>
+				<Description>Descripcion 24</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 3">
+			<Task>
+				<Title>Tarea 30</Title>
+				<Description>Descripcion 30</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 31</Title>
+				<Description>Descripcion 31</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 32</Title>
+				<Description>Descripcion 32</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 33</Title>
+				<Description>Descripcion 33</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 34</Title>
+				<Description>Descripcion 34</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 02</Title>
+				<Description>Descripcion 02</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 4">
+			<Task>
+				<Title>Tarea 40</Title>
+				<Description>Descripcion 40</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 41</Title>
+				<Description>Descripcion 41</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 42</Title>
+				<Description>Descripcion 42</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 43</Title>
+				<Description>Descripcion 43</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 44</Title>
+				<Description>Descripcion 44</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 5">
+			<Task>
+				<Title>Tarea 50</Title>
+				<Description>Descripcion 50</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 51</Title>
+				<Description>Descripcion 51</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 52</Title>
+				<Description>Descripcion 52</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 53</Title>
+				<Description>Descripcion 53</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 54</Title>
+				<Description>Descripcion 54</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 6">
+			<Task>
+				<Title>Tarea 60</Title>
+				<Description>Descripcion 60</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 61</Title>
+				<Description>Descripcion 61</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 62</Title>
+				<Description>Descripcion 62</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 63</Title>
+				<Description>Descripcion 63</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 64</Title>
+				<Description>Descripcion 64</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 7">
+			<Task>
+				<Title>Tarea 70</Title>
+				<Description>Descripcion 70</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 71</Title>
+				<Description>Descripcion 71</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 72</Title>
+				<Description>Descripcion 72</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 73</Title>
+				<Description>Descripcion 73</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 74</Title>
+				<Description>Descripcion 74</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 8">
+			<Task>
+				<Title>Tarea 80</Title>
+				<Description>Descripcion 80</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 81</Title>
+				<Description>Descripcion 81</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 82</Title>
+				<Description>Descripcion 82</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 83</Title>
+				<Description>Descripcion 83</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 84</Title>
+				<Description>Descripcion 84</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+		<State Title="State 9">
+			<Task>
+				<Title>Tarea 90</Title>
+				<Description>Descripcion 90</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 91</Title>
+				<Description>Descripcion 91</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 92</Title>
+				<Description>Descripcion 92</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 93</Title>
+				<Description>Descripcion 93</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+			<Task>
+				<Title>Tarea 94</Title>
+				<Description>Descripcion 94</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591198592</Date>
+			</Task>
+		</State>
+	</Panel>
+	<Panel Title="Test 88">
 		<State Title="State 0">
 			<Task>
 				<Title>Tarea 00</Title>

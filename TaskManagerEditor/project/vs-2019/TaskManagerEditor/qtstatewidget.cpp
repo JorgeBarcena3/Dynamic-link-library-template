@@ -1,7 +1,7 @@
-#include "qtstatewidget.h"
+#include "QTStateWidget.h"
 
-QTStateWidget::QTStateWidget(QString _name, QWidget *parent)
-    : QWidget(parent), name(_name)
+QTStateWidget::QTStateWidget(QWidget *parent)
+    : QWidget(parent)
 {
     ui.setupUi(this);
 }

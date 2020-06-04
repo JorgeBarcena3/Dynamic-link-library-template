@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QTaskWidget</class>
+ <widget class="QWidget" name="QTaskWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>453</width>
+    <height>393</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>QTaskWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="title">
+      <string>Título de la tarea</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QToolButton" name="toolButton">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QToolButton" name="toolButton_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Go.png</normaloff>:/TaskManagerEditor/Go.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QToolButton" name="toolButton_6">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Lightning.png</normaloff>:/TaskManagerEditor/Lightning.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QToolButton" name="toolButton_7">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Delete.png</normaloff>:/TaskManagerEditor/Delete.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4" colspan="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="5">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Persona a cargo de la tarea</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QToolButton" name="toolButton_3">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="4">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>04 / 06 / 2020 18:19</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QToolButton" name="toolButton_4">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="3">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Descripcion:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QToolButton" name="toolButton_5">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="TaskManagerEditor.qrc">
+          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="6">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales viverra magna, a consectetur urna blandit non. Integer id sem vitae ipsum ultricies egestas. Maecenas vulputate rutrum accumsan. Sed iaculis ut eros ac volutpat. Morbi auctor ipsum diam, id varius nisi ultricies a. Aenean dignissim, mauris ac tincidunt aliquet, massa ipsum condimentum risus, vitae blandit tortor nibh nec lacus. Ut purus turpis, aliquam in velit ut, convallis aliquam enim. Donec et mauris eget erat varius rutrum. Aenean eu arcu in dolor lobortis dictum. Donec malesuada venenatis arcu in iaculis. Maecenas gravida scelerisque massa ultricies molestie.</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::AutoText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="TaskManagerEditor.qrc"/>
+ </resources>
+ <connections/>
+</ui>

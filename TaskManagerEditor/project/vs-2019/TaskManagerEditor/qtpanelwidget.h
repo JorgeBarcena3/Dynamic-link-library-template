@@ -1,46 +1,24 @@
 #pragma once
 
-#include <qtabwidget.h>
-#include <PanelManager.hpp>
+#include <QWidget>
+#include "ui_QTPanelWidget.h"
 
-namespace Ui
+class QTPanelWidget : public QWidget
 {
-    class TaskManagerEditorClass;
-}
-
-class QTPanelWidget : public QTabWidget
-{
+    Q_OBJECT
 
 private:
 
-    TaskManager::PanelManager * panelManager;
+    QString name;
 
 public:
 
-    QTPanelWidget(QObject *parent);
+    QTPanelWidget(QString name, QWidget *parent = Q_NULLPTR);
 
     ~QTPanelWidget();
 
-    void refreshData();
-
-    void connectSignals(Ui::TaskManagerEditorClass * ui);
-
-public slots:
-
-    void addPanel(bool triggered);
-
+    inline QString getName() { return name; };
 
 private:
-
-    void setCurrentTab(int index);
-
-    void removeTabs();
-
-    void createTabsFromInfo();
-
-    int createTab(QString name);
-
-    void showError(TaskManager::TaskStatus_b err);
-
-    void changePanel(int index);
+    Ui::QTPanelWidget ui;
 };

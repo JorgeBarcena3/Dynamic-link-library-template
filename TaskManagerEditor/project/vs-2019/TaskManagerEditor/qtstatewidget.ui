@@ -10,34 +10,101 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>720</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>QTStateWidget</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
-   <item>
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-   </item>
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
+     </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>Titulo de el estado</string>
      </property>
     </widget>
    </item>
-   <item>
-    <widget class="QLabel" name="label_3">
+   <item row="0" column="1">
+    <widget class="QToolButton" name="toolButton">
      <property name="text">
-      <string>TextLabel</string>
+      <string>...</string>
      </property>
+     <property name="icon">
+      <iconset resource="TaskManagerEditor.qrc">
+       <normaloff>:/TaskManagerEditor/Add.png</normaloff>:/TaskManagerEditor/Add.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>357</width>
+        <height>245</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTaskWidget" name="widget_4" native="true"/>
+       </item>
+       <item>
+        <widget class="QTaskWidget" name="widget_2" native="true"/>
+       </item>
+       <item>
+        <widget class="QTaskWidget" name="widget" native="true"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>QTaskWidget</class>
+   <extends>QWidget</extends>
+   <header>QTaskWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="TaskManagerEditor.qrc"/>
+ </resources>
  <connections/>
 </ui>
