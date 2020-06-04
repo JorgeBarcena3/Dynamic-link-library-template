@@ -7,10 +7,19 @@ class QTStateWidget : public QWidget
 {
     Q_OBJECT
 
+private:
+
+    QString name;
+
 public:
-    QTStateWidget(QWidget *parent = Q_NULLPTR);
+
+    QTStateWidget(QString _name, QWidget *parent = Q_NULLPTR);
+
     ~QTStateWidget();
 
+    inline QString getName() { return name; };
+
 private:
+
     Ui::QTStateWidget ui;
 };

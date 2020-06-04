@@ -15,6 +15,7 @@ QTPanelWidget::QTPanelWidget(QObject *parent)
 void QTPanelWidget::connectSignals(Ui::TaskManagerEditorClass* ui)
 {
     connect(ui->actionNew_Panel, &QAction::triggered, this, &QTPanelWidget::addPanel);
+    connect(this, &QTabWidget::tabBarClicked, this, &QTPanelWidget::changePanel);
 
 }
 
@@ -86,8 +87,7 @@ void QTPanelWidget::createTabsFromInfo()
 int QTPanelWidget::createTab(QString name)
 {
     
-
-    return addTab(new QTStateWidget(this), name);
+    return addTab(new QTStateWidget(name, this), name);
 
 }
 
@@ -95,4 +95,10 @@ void QTPanelWidget::showError(TaskManager::TaskStatus_b err)
 {
     TaskManagerEditor::getInstance()->showError(err);
 
+}
+
+void QTPanelWidget::changePanel(int index)
+{
+    QTStateWidget * currentState = (QTStateWidget*)widget(index);
+    panelManager->changeToPanel(currentState->getName().toUtf8().constData());
 }

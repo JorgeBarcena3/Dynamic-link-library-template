@@ -41,4 +41,6 @@ private:
     int createTab(QString name);
 
     void showError(TaskManager::TaskStatus_b err);
+
+    void changePanel(int index);
 };
