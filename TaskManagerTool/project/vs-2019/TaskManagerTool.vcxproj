@@ -14,9 +14,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{6BB9D1A6-6E03-47B0-ACCD-2D8D3DDE8538}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libEnlaceDinamico</RootNamespace>
+    <RootNamespace>TaskManagerTool</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>dllTestLibrary</ProjectName>
+    <ProjectName>TaskManagerTool</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -69,8 +69,8 @@
       <AdditionalDependencies>lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../QTApp/project/vs-2019/TaskManagerEditor"
-xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../QTApp/lib/$(ProjectName)"</Command>
+      <Command>xcopy /y "..\..\lib\$(ProjectName)\*.dll" "..\..\..\TaskManagerEditor\project\vs-2019\TaskManagerEditor"
+xcopy /y "..\..\lib\$(ProjectName)\*.lib" "..\..\..\TaskManagerEditor\lib\$(ProjectName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -94,8 +94,8 @@ xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../QTApp/lib/$(ProjectName)"</C
       <AdditionalDependencies>lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "../../lib\$(ProjectName)\*.dll" "../../../QTApp/project/vs-2019/TaskManagerEditor"
-xcopy /y "../../lib\$(ProjectName)\*.lib" "../../../QTApp/lib/$(ProjectName)"</Command>
+      <Command>xcopy /y "..\..\lib\$(ProjectName)\*.dll" "..\..\..\TaskManagerEditor\project\vs-2019\TaskManagerEditor"
+xcopy /y "..\..\lib\$(ProjectName)\*.lib" "..\..\..\TaskManagerEditor\lib\$(ProjectName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
