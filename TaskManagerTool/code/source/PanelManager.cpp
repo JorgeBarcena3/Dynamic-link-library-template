@@ -159,6 +159,8 @@ TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaS
     scripting.vm->set("createPanel"       , [this](const char* t) { this->createPanel(t);  });
     scripting.vm->set("changeToPanel"     , [this](const char* t) { this->changeToPanel(t);  });
     scripting.vm->set("getTaskFromState"  , [this](const char* t) { this->getTaskFromState(t);  });
+    scripting.vm->set("getStatesFromPanel", [this](const char* t) { this->getStatesFromPanel(t);  });
+    scripting.vm->set("getAllPanels"      , [this]()              { this->getAllPanels();  });
 
     return true;
 }

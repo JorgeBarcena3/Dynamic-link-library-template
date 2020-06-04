@@ -82,6 +82,8 @@ namespace TaskManager
 
         inline bool itsOk() { return returnObj; };
 
+        inline string getError() { return error; };
+
 
     };
 

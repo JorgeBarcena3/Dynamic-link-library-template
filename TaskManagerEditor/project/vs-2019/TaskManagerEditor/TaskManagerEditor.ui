@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1120</width>
-    <height>767</height>
+    <width>1138</width>
+    <height>814</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1120</width>
+     <width>1138</width>
      <height>26</height>
     </rect>
    </property>
@@ -72,7 +72,28 @@
     <addaction name="separator"/>
     <addaction name="actionTask_Manager_Editor"/>
    </widget>
+   <widget class="QMenu" name="menuBuild">
+    <property name="title">
+     <string>Build</string>
+    </property>
+    <widget class="QMenu" name="menuExecute_commands">
+     <property name="title">
+      <string>Execute commands</string>
+     </property>
+     <addaction name="actionLua"/>
+    </widget>
+    <widget class="QMenu" name="menuExecute_File">
+     <property name="title">
+      <string>Execute File</string>
+     </property>
+     <addaction name="actionLuaFile"/>
+    </widget>
+    <addaction name="menuExecute_commands"/>
+    <addaction name="separator"/>
+    <addaction name="menuExecute_File"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuBuild"/>
    <addaction name="menuAbout_me"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -127,6 +148,16 @@
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionLua">
+   <property name="text">
+    <string>Lua</string>
+   </property>
+  </action>
+  <action name="actionLuaFile">
+   <property name="text">
+    <string>Lua</string>
    </property>
   </action>
  </widget>

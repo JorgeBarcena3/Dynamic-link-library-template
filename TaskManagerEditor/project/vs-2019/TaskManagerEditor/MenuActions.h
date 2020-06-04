@@ -47,4 +47,16 @@ public slots:
     void openGitHub(bool triggered);
 
     void openLinkedin(bool triggered);
+
+    void executeLuaCommand(bool triggered);
+
+    void executeLuaFile(bool triggered);
+
+private:
+
+
+    void executeLuaCode(QString code);
+
+    QString readFile(QString path);
+
 };

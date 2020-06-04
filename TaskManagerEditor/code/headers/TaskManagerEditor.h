@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_TaskManagerEditor.h"
 #include <MenuActions.h>
+#include <TaskStatus.hpp>
 
 class TaskManagerEditor : public QMainWindow
 {
@@ -10,9 +11,20 @@ class TaskManagerEditor : public QMainWindow
 
 public:
 
-    TaskManagerEditor(QWidget *parent = Q_NULLPTR);
+    static TaskManagerEditor* getInstance()
+    {
+        static TaskManagerEditor instance;
 
+        return &instance;
+    }
 
+private:
+
+    TaskManagerEditor(QWidget* parent = Q_NULLPTR);
+
+public:
+
+    void showError(TaskManager::TaskStatus_b a);
 
 private:
 
