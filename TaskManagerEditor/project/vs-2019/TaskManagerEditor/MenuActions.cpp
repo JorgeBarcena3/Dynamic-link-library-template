@@ -21,8 +21,8 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
     ui->setupUi(parent);
 
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(load(bool)));
-    connect(ui->actionXML, SIGNAL(triggered(bool)), this, SLOT(exportXML(bool)));
-    connect(ui->actionXML_2, SIGNAL(triggered(bool)), this, SLOT(importXML(bool)));
+    connect(ui->actionXML_Export, SIGNAL(triggered(bool)), this, SLOT(exportXML(bool)));
+    connect(ui->actionXML_Import, SIGNAL(triggered(bool)), this, SLOT(importXML(bool)));
     connect(ui->actionSave, SIGNAL(triggered(bool)), this, SLOT(save(bool)));
     connect(ui->actionSave_as, SIGNAL(triggered(bool)), this, SLOT(saveAs(bool)));
     connect(ui->actionGithub, SIGNAL(triggered(bool)), this, SLOT(openGitHub(bool)));
