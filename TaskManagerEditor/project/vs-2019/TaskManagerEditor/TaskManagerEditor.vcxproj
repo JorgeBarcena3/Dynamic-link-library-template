@@ -83,21 +83,37 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../../../../TaskManagerTool/code/headers;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../../TaskManagerTool/code/headers;../../../code/headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\..\..\lib\TaskManagerTool;$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>TaskManagerTool.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <QtMoc>
+      <PathPrefix>../../../code/headers/</PathPrefix>
+    </QtMoc>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>xcopy "code\*.*" "$(PlatformTarget)\code\" /Y /I /E</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../../../../TaskManagerTool/code/headers;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../../TaskManagerTool/code/headers;../../../code/headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\..\..\lib\TaskManagerTool;$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>TaskManagerTool.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <QtMoc>
+      <PathPrefix>../jorgeTEst</PathPrefix>
+    </QtMoc>
+    <PreBuildEvent>
+      <Command>xcopy "code\*.*" "$(PlatformTarget)\code\" /Y /I /E</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="TaskManagerEditor.qrc" />
@@ -107,25 +123,36 @@
     <QtUic Include="TaskManagerEditor.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\code\source\main.cpp" />
+    <ClCompile Include="..\..\..\code\source\MenuActions.cpp" />
+    <ClCompile Include="..\..\..\code\source\QTApplicationWidget.cpp" />
+    <ClCompile Include="..\..\..\code\source\QTaskWidget.cpp" />
+    <ClCompile Include="..\..\..\code\source\QTPanelWidget.cpp" />
+    <ClCompile Include="..\..\..\code\source\QTStateWidget.cpp" />
+    <ClCompile Include="..\..\..\code\source\QTTaskWidget.cpp" />
+    <ClCompile Include="..\..\..\code\source\TaskManagerEditor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\..\code\headers\QTPanelWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\..\code\headers\QTStateWidget.h">
+      <PathPrefix Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PathPrefix>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\..\..\code\headers\QTTaskWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
     <QtMoc Include="..\..\..\code\headers\TaskManagerEditor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\code\source\main.cpp" />
-    <ClCompile Include="..\..\..\code\source\TaskManagerEditor.cpp" />
-    <ClCompile Include="MenuActions.cpp" />
-    <ClCompile Include="QTApplicationWidget.cpp" />
-    <ClCompile Include="QTaskWidget.cpp" />
-    <ClCompile Include="QTPanelWidget.cpp" />
-    <ClCompile Include="QTStateWidget.cpp" />
+    <QtMoc Include="..\..\..\code\headers\MenuActions.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MenuActions.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="QTApplicationWidget.h" />
-    <QtMoc Include="QTaskWidget.h" />
-    <QtMoc Include="QTStateWidget.h" />
-    <QtMoc Include="QTPanelWidget.h" />
+    <ClInclude Include="..\..\..\code\headers\QTApplicationWidget.h" />
+    <QtMoc Include="..\..\..\code\headers\QTaskWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

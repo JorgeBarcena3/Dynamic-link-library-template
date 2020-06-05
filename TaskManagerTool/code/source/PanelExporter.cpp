@@ -34,7 +34,7 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportDataAsXML(std::strin
     }
     catch (exception e)
     {
-        return (e.what(), false);
+        return ("Error al exportar los datos", false);
     }
 }
 
@@ -65,7 +65,7 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
     }
     catch (exception e)
     {
-        return (e.what(), false);
+        return ("Error al exportar los datos", false);
     }
 }
 

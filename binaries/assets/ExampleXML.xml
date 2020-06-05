@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-16"?>
+<TaskManager>
+	<Panel Title="Panel 1">
+		<State Title="To Do">
+			<Task>
+				<Title>Middelware</Title>
+				<Description>Acabar la herramienta de Midelware</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373536</Date>
+			</Task>
+			<Task>
+				<Title>Animacion 3D</Title>
+				<Description>Hacer la practica de animacion 3D</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373556</Date>
+			</Task>
+			<Task>
+				<Title>Entornos interactivos</Title>
+				<Description>Hacer la practica de entornos
+</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373583</Date>
+			</Task>
+		</State>
+		<State Title="Doing">
+			<Task>
+				<Title>Programacion Grafica</Title>
+				<Description>Acabar la entrega de anmiacion Grafica
+</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373627</Date>
+			</Task>
+			<Task>
+				<Title>Trabajo</Title>
+				<Description>Busqueda de trabajo
+</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373653</Date>
+			</Task>
+		</State>
+		<State Title="Done">
+			<Task>
+				<Title>Motores</Title>
+				<Description>Entrega de motores
+</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373677</Date>
+			</Task>
+			<Task>
+				<Title>IA</Title>
+				<Description>Entrega de IA
+</Description>
+				<Assign>Jorge</Assign>
+				<Date>1591373694</Date>
+			</Task>
+		</State>
+	</Panel>
+</TaskManager>
+

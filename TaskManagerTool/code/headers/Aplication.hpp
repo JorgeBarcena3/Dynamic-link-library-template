@@ -45,7 +45,7 @@ namespace TaskManager
 
     private:
 
-        std::map<std::string, TaskManager::Component* > aplicationComponents;
+        std::map<std::string, TaskManager::Component* >  * aplicationComponents;
 
 
     public:

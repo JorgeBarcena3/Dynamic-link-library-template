@@ -8,29 +8,34 @@
 
 using namespace TaskManager;
 
+TaskManager::PanelManager::~PanelManager()
+{
+    delete panels;
+}
+
 TaskStatus_b TaskManager::PanelManager::removeAllPanels()
 {
     currentPanelId = 0;
 
-    for (auto panel : panels)
+    for (auto panel : *panels)
     {
         delete panel;
     }
 
-    panels.clear();
+    (*panels).clear();
 
     return true;
 }
 
 TaskStatus_b TaskManager::PanelManager::removePanel(string t)
 {
-    for (size_t i = 0; i < panels.size(); i++)
+    for (size_t i = 0; i < (*panels).size(); i++)
     {
-        if (panels[i]->getTitle() == t)
+        if ((*panels)[i]->getTitle() == t)
         {
-            delete panels[i];
-            panels.erase(panels.begin() + i);
-            i = panels.size();
+            delete (*panels)[i];
+            (*panels).erase((*panels).begin() + i);
+            i = (*panels).size();
         }
     }
 
@@ -39,12 +44,12 @@ TaskStatus_b TaskManager::PanelManager::removePanel(string t)
 
 TaskStatus_b TaskManager::PanelManager::addState(string title)
 {
-    return panels[currentPanelId]->addState(StateDto(title, panels[currentPanelId]));
+    return (*panels)[currentPanelId]->addState(StateDto(title, (*panels)[currentPanelId]));
 }
 
 TaskStatus_b TaskManager::PanelManager::addTaskToState(string stateTitle, string t, string d, string a, string date)
 {
-    auto s = panels[currentPanelId]->getState(stateTitle);
+    auto s = (*panels)[currentPanelId]->getState(stateTitle);
 
     if (s)
     {
@@ -56,7 +61,7 @@ TaskStatus_b TaskManager::PanelManager::addTaskToState(string stateTitle, string
 
 TaskStatus_b TaskManager::PanelManager::removeTaskofState(string stateTitle, string t)
 {
-    auto s = panels[currentPanelId]->getState(stateTitle);
+    auto s = (*panels)[currentPanelId]->getState(stateTitle);
 
     if (s)
     {
@@ -69,7 +74,7 @@ TaskStatus_b TaskManager::PanelManager::removeTaskofState(string stateTitle, str
 
 TaskStatus_b TaskManager::PanelManager::changeTaskToState(string stateTile, string t, string toStateTitle)
 {
-    auto s = panels[currentPanelId]->getState(stateTile);
+    auto s = (*panels)[currentPanelId]->getState(stateTile);
 
     TaskStatus_b err(false);
 
@@ -84,7 +89,7 @@ TaskStatus_b TaskManager::PanelManager::changeTaskToState(string stateTile, stri
 
             if (err.itsOk())
             {
-                auto ns = panels[currentPanelId]->getState(toStateTitle);
+                auto ns = (*panels)[currentPanelId]->getState(toStateTitle);
                 return ns->addTask(*task);
             }
 
@@ -105,30 +110,30 @@ TaskStatus_b TaskManager::PanelManager::changeTaskToState(string stateTile, stri
 TaskStatus_b TaskManager::PanelManager::removeState(string t)
 {
 
-    return panels[currentPanelId]->removeState(t);
+    return (*panels)[currentPanelId]->removeState(t);
 
 }
 
 TaskStatus_b TaskManager::PanelManager::createPanel(string t)
 {
-    for (auto p : panels)
+    for (auto p : (*panels))
     {
         if (p->getTitle() == t)
             return TaskStatus_b("Panel ya creado con el nombre [" + t + "]", false);
     }
 
-    panels.push_back(new PanelDto(t));
+    (*panels).push_back(new PanelDto(t));
 
     return true;
 }
 
 TaskStatus_b TaskManager::PanelManager::changeToPanel(string t)
 {
-    for (size_t i = 0; i < panels.size(); i++)
+    for (size_t i = 0; i < (*panels).size(); i++)
     {
-        if (panels[i]->getTitle() == t)
+        if ((*panels)[i]->getTitle() == t)
         {
-            currentPanelId = i;
+            currentPanelId = (int) i;
             return true;
         }
     }
@@ -175,7 +180,7 @@ TaskStatus_b TaskManager::PanelManager::changeStatusName(string old, string newN
 
 TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(string t)
 {
-    auto s = panels[currentPanelId]->getState(t);
+    auto s = (*panels)[currentPanelId]->getState(t);
 
     if (s)
     {
@@ -188,7 +193,7 @@ TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(strin
 TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(string t = "")
 {
     changeToPanel(t);
-    auto s = panels[currentPanelId];
+    auto s = (*panels)[currentPanelId];
 
     if (s)
     {
@@ -207,7 +212,7 @@ TaskStatus<TaskManager::StateDto*> TaskManager::PanelManager::getStatesFromCurre
 
 TaskStatus<vector<PanelDto*>> TaskManager::PanelManager::getAllPanels()
 {
-    return new vector<PanelDto*>(panels);
+    return new vector<PanelDto*>((*panels));
 }
 
 TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaScripting& scripting)

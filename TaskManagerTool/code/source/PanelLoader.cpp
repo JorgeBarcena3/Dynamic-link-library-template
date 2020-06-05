@@ -20,7 +20,7 @@ TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanelAsXML(std::string
     }
     catch (exception e)
     {
-        return (e.what(), false);
+        return ("Error al importar el archivo XML", false);
     }
 }
 

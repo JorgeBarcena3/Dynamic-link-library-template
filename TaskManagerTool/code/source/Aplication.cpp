@@ -12,13 +12,13 @@ Aplication * Aplication::app = nullptr;
 
 TaskManager::Aplication::Aplication()
 {
+    aplicationComponents = new  std::map<std::string, TaskManager::Component* >();
+    (*aplicationComponents)["scriptingComponent"] = new LuaScripting();
+    (*aplicationComponents)["PanelLoader"]        = new PanelLoader();
+    (*aplicationComponents)["PanelExporter"]      = new PanelExporter();
+    (*aplicationComponents)["PanelManager"]       = new PanelManager();
 
-    aplicationComponents["scriptingComponent"] = new LuaScripting();
-    aplicationComponents["PanelLoader"]        = new PanelLoader();
-    aplicationComponents["PanelExporter"]      = new PanelExporter();
-    aplicationComponents["PanelManager"]       = new PanelManager();
-
-    for (auto component : aplicationComponents)
+    for (auto component : *aplicationComponents)
     {
         component.second->initializeLuaScripting(getScripting());
     }
@@ -37,19 +37,21 @@ Aplication* TaskManager::Aplication::instance()
 
 TaskManager::Aplication::~Aplication()
 {
-    for (auto component : aplicationComponents)
+    for (auto component : *aplicationComponents)
     {
         delete component.second;
-        aplicationComponents.erase(component.first);
+        (*aplicationComponents).erase(component.first);
     }
+
+    delete aplicationComponents;
 }
 
 TaskManager::LuaScripting& TaskManager::Aplication::getScripting()
 {
-    return *((TaskManager::LuaScripting*) (aplicationComponents["scriptingComponent"]));
+    return *((TaskManager::LuaScripting*) ((*aplicationComponents)["scriptingComponent"]));
 }
 
 TaskManager::Component* TaskManager::Aplication::getComponent(std::string name)
 {
-    return aplicationComponents[name];
+    return (*aplicationComponents)[name];
 }

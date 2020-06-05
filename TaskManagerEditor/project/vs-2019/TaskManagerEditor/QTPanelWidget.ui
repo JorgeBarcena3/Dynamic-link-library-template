@@ -40,7 +40,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Add.png</normaloff>:/TaskManagerEditor/Add.png</iconset>
+       <normaloff>:/resources/resources/Add.png</normaloff>:/resources/resources/Add.png</iconset>
      </property>
     </widget>
    </item>
@@ -57,7 +57,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Playback.png</normaloff>:/TaskManagerEditor/Playback.png</iconset>
+       <normaloff>:/resources/resources/Playback.png</normaloff>:/resources/resources/Playback.png</iconset>
      </property>
     </widget>
    </item>
@@ -74,7 +74,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Play.png</normaloff>:/TaskManagerEditor/Play.png</iconset>
+       <normaloff>:/resources/resources/Play.png</normaloff>:/resources/resources/Play.png</iconset>
      </property>
     </widget>
    </item>

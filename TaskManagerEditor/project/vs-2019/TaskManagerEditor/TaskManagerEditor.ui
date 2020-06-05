@@ -183,7 +183,7 @@
   <action name="actionOpen">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Folder.png</normaloff>:/TaskManagerEditor/Folder.png</iconset>
+     <normaloff>:/resources/resources/Folder.png</normaloff>:/resources/resources/Folder.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -195,7 +195,7 @@
   <action name="actionSave">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Save.png</normaloff>:/TaskManagerEditor/Save.png</iconset>
+     <normaloff>:/resources/resources/Save.png</normaloff>:/resources/resources/Save.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -207,7 +207,7 @@
   <action name="actionXML_Export">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Update.png</normaloff>:/TaskManagerEditor/Update.png</iconset>
+     <normaloff>:/resources/resources/Up.png</normaloff>:/resources/resources/Up.png</iconset>
    </property>
    <property name="text">
     <string>XML</string>
@@ -222,7 +222,7 @@
   <action name="actionSave_as">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Save.png</normaloff>:/TaskManagerEditor/Save.png</iconset>
+     <normaloff>:/resources/resources/Save.png</normaloff>:/resources/resources/Save.png</iconset>
    </property>
    <property name="text">
     <string>Save as</string>
@@ -234,7 +234,7 @@
   <action name="actionXML_Import">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Down.png</normaloff>:/TaskManagerEditor/Down.png</iconset>
+     <normaloff>:/resources/resources/Down.png</normaloff>:/resources/resources/Down.png</iconset>
    </property>
    <property name="text">
     <string>XML</string>
@@ -249,7 +249,7 @@
   <action name="actionClose">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Turn off.png</normaloff>:/TaskManagerEditor/Turn off.png</iconset>
+     <normaloff>:/resources/resources/Exit.png</normaloff>:/resources/resources/Exit.png</iconset>
    </property>
    <property name="text">
     <string>Close</string>
@@ -258,7 +258,7 @@
   <action name="actionLua">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Copy.png</normaloff>:/TaskManagerEditor/Copy.png</iconset>
+     <normaloff>:/resources/resources/List.png</normaloff>:/resources/resources/List.png</iconset>
    </property>
    <property name="text">
     <string>Lua</string>
@@ -270,7 +270,7 @@
   <action name="actionLuaFile">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Copy.png</normaloff>:/TaskManagerEditor/Copy.png</iconset>
+     <normaloff>:/resources/resources/List.png</normaloff>:/resources/resources/List.png</iconset>
    </property>
    <property name="text">
     <string>Lua</string>
@@ -282,7 +282,7 @@
   <action name="actionNew">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/New document.png</normaloff>:/TaskManagerEditor/New document.png</iconset>
+     <normaloff>:/resources/resources/New document.png</normaloff>:/resources/resources/New document.png</iconset>
    </property>
    <property name="text">
     <string>New</string>
@@ -291,7 +291,7 @@
   <action name="actionRefresh">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Sync.png</normaloff>:/TaskManagerEditor/Sync.png</iconset>
+     <normaloff>:/resources/resources/Refresh.png</normaloff>:/resources/resources/Refresh.png</iconset>
    </property>
    <property name="text">
     <string>Refresh</string>
@@ -303,7 +303,7 @@
   <action name="actionNew_Panel">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Create.png</normaloff>:/TaskManagerEditor/Create.png</iconset>
+     <normaloff>:/resources/resources/Add.png</normaloff>:/resources/resources/Add.png</iconset>
    </property>
    <property name="text">
     <string>New Panel</string>
@@ -315,7 +315,7 @@
   <action name="actionEdit_Panel">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+     <normaloff>:/resources/resources/Modify.png</normaloff>:/resources/resources/Modify.png</iconset>
    </property>
    <property name="text">
     <string>Edit Panel</string>
@@ -327,7 +327,7 @@
   <action name="actionRemove_Panel">
    <property name="icon">
     <iconset resource="TaskManagerEditor.qrc">
-     <normaloff>:/TaskManagerEditor/Erase.png</normaloff>:/TaskManagerEditor/Erase.png</iconset>
+     <normaloff>:/resources/resources/Erase.png</normaloff>:/resources/resources/Erase.png</iconset>
    </property>
    <property name="text">
     <string>Remove Panel</string>

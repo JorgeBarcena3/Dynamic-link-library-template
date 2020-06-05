@@ -42,17 +42,19 @@ namespace TaskManager
 
         int currentPanelId;
 
-        vector<PanelDto*> panels;
+        vector<PanelDto*> * panels;
 
     public:
 
-        PanelManager() : currentPanelId(-1) { };
+        PanelManager() : currentPanelId(-1), panels(new vector<PanelDto*>()){ };
+
+        ~PanelManager();
 
         TaskStatus_b removeAllPanels();
 
         TaskStatus_b removePanel(string t);
 
-        inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
+        inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : (*panels)[currentPanelId]; };
 
         TaskStatus_b addState(string title);
 

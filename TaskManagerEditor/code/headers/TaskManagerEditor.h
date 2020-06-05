@@ -1,8 +1,9 @@
 #pragma once
+#include <MenuActions.h>
+
 
 #include <QtWidgets/QMainWindow>
 #include "ui_TaskManagerEditor.h"
-#include <MenuActions.h>
 #include <TaskStatus.hpp>
 
 class TaskManagerEditor : public QMainWindow

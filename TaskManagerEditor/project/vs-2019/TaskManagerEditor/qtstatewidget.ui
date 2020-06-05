@@ -63,7 +63,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+       <normaloff>:/resources/resources/Modify.png</normaloff>:/resources/resources/Modify.png</iconset>
      </property>
     </widget>
    </item>
@@ -80,7 +80,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Add.png</normaloff>:/TaskManagerEditor/Add.png</iconset>
+       <normaloff>:/resources/resources/Add.png</normaloff>:/resources/resources/Add.png</iconset>
      </property>
     </widget>
    </item>
@@ -97,7 +97,7 @@
      </property>
      <property name="icon">
       <iconset resource="TaskManagerEditor.qrc">
-       <normaloff>:/TaskManagerEditor/Erase.png</normaloff>:/TaskManagerEditor/Erase.png</iconset>
+       <normaloff>:/resources/resources/Erase.png</normaloff>:/resources/resources/Erase.png</iconset>
      </property>
     </widget>
    </item>

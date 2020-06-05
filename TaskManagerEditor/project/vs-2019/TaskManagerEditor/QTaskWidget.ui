@@ -64,7 +64,7 @@
         </property>
         <property name="icon">
          <iconset resource="TaskManagerEditor.qrc">
-          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+          <normaloff>:/resources/resources/Modify.png</normaloff>:/resources/resources/Modify.png</iconset>
         </property>
        </widget>
       </item>
@@ -75,7 +75,7 @@
         </property>
         <property name="icon">
          <iconset resource="TaskManagerEditor.qrc">
-          <normaloff>:/TaskManagerEditor/Go.png</normaloff>:/TaskManagerEditor/Go.png</iconset>
+          <normaloff>:/resources/resources/Go.png</normaloff>:/resources/resources/Go.png</iconset>
         </property>
        </widget>
       </item>
@@ -105,7 +105,7 @@
         </property>
         <property name="icon">
          <iconset resource="TaskManagerEditor.qrc">
-          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+          <normaloff>:/resources/resources/Modify.png</normaloff>:/resources/resources/Modify.png</iconset>
         </property>
        </widget>
       </item>
@@ -148,7 +148,7 @@
         </property>
         <property name="icon">
          <iconset resource="TaskManagerEditor.qrc">
-          <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+          <normaloff>:/resources/resources/Modify.png</normaloff>:/resources/resources/Modify.png</iconset>
         </property>
        </widget>
       </item>
@@ -177,7 +177,7 @@
         </property>
         <property name="icon">
          <iconset resource="TaskManagerEditor.qrc">
-          <normaloff>:/TaskManagerEditor/Delete.png</normaloff>:/TaskManagerEditor/Delete.png</iconset>
+          <normaloff>:/resources/resources/Delete.png</normaloff>:/resources/resources/Delete.png</iconset>
         </property>
        </widget>
       </item>
