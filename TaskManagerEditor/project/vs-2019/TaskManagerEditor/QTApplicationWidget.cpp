@@ -80,8 +80,13 @@ void QTApplicationWidget::createTabsFromInfo()
 
     for (auto panel : panels.getReturnObj())
     {
+        panelManager->changeToPanel(panel->getTitle());
+
         createTab(panel->getTitle().c_str());
     }
+
+    panelManager->changeToPanel(0);
+
 }
 
 int QTApplicationWidget::createTab(QString name)

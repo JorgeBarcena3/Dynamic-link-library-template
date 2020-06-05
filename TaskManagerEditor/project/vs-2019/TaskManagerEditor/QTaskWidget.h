@@ -2,15 +2,22 @@
 
 #include <QWidget>
 #include "ui_QTaskWidget.h"
+#include <TaskDto.hpp>
 
 class QTaskWidget : public QWidget
 {
     Q_OBJECT
 
+private:
+
+    Ui::QTaskWidget ui;
+
 public:
-    QTaskWidget(QWidget *parent = Q_NULLPTR);
+    QTaskWidget(TaskManager::TaskDto & task, QWidget *parent = Q_NULLPTR);
     ~QTaskWidget();
 
 private:
-    Ui::QTaskWidget ui;
+
+    void setInfo(TaskManager::TaskDto& task);
+
 };

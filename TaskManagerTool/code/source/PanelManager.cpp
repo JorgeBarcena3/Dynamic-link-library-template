@@ -120,6 +120,13 @@ TaskStatus_b TaskManager::PanelManager::changeToPanel(string t)
     return TaskStatus_b("No se ha encontrado el panel al que quiere cambiar.", false);
 }
 
+TaskStatus_b TaskManager::PanelManager::changeToPanel(int t)
+{
+
+    currentPanelId = t;
+    return true;
+}
+
 TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(string t)
 {
     auto s = panels[currentPanelId]->getState(t);

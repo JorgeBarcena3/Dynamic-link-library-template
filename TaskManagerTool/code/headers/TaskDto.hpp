@@ -73,6 +73,8 @@ namespace TaskManager
 
         inline time_t  getCreationDate() { return creationDate; };
 
+        string getCreationDateString();
+
         StateDto & getStateDto();
 
         inline void setState(StateDto* s) { stateDto = s; };

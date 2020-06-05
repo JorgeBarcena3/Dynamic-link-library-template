@@ -29,7 +29,6 @@ public slots:
 
     void addPanel(bool triggered);
 
-
 private:
 
     void setCurrentTab(int index);

@@ -23,7 +23,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string> </string>
+      <string/>
      </property>
     </widget>
    </item>
@@ -62,62 +62,11 @@
     </widget>
    </item>
    <item row="1" column="0" colspan="3">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QTStateWidget" name="State1" native="true">
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>10000</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
-</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTStateWidget" name="State2" native="true">
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>10000</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
-</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTStateWidget" name="State3" native="true">
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>10000</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
-</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QTStateWidget</class>
-   <extends>QWidget</extends>
-   <header>QTStateWidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="TaskManagerEditor.qrc"/>
  </resources>

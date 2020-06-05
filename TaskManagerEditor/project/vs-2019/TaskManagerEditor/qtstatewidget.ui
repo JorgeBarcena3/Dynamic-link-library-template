@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>430</width>
     <height>300</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="titulo_estado">
      <property name="font">
       <font>
        <pointsize>11</pointsize>
@@ -69,40 +69,25 @@
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>357</width>
+        <width>387</width>
         <height>245</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QTaskWidget" name="widget_4" native="true"/>
-       </item>
-       <item>
-        <widget class="QTaskWidget" name="widget_2" native="true"/>
-       </item>
-       <item>
-        <widget class="QTaskWidget" name="widget" native="true"/>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </widget>
    </item>
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QTaskWidget</class>
-   <extends>QWidget</extends>
-   <header>QTaskWidget.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="TaskManagerEditor.qrc"/>
  </resources>

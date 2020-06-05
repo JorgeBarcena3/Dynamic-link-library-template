@@ -2,6 +2,8 @@
 
 #include <QWidget>
 #include "ui_QTPanelWidget.h"
+#include <PanelManager.hpp>
+
 
 class QTPanelWidget : public QWidget
 {
@@ -11,6 +13,15 @@ private:
 
     QString name;
 
+    TaskManager::PanelManager* panelManager;
+
+    Ui::QTPanelWidget ui;
+
+    int stateIndex;
+
+    int max_states;
+
+
 public:
 
     QTPanelWidget(QString name, QWidget *parent = Q_NULLPTR);
@@ -19,6 +30,14 @@ public:
 
     inline QString getName() { return name; };
 
+    void refreshPanel();
+
 private:
-    Ui::QTPanelWidget ui;
+
+    void clearPanel();
+
+    void nextState();
+
+    void previusState();
+
 };
