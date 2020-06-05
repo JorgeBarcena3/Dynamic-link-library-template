@@ -6,7 +6,7 @@
 #include <QtWidgets\qinputdialog.h>
 
 
-QTApplicationWidget::QTApplicationWidget(QObject *parent)
+QTApplicationWidget::QTApplicationWidget(QObject* parent)
 {
     panelManager = (TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager");
 
@@ -16,6 +16,7 @@ void QTApplicationWidget::connectSignals(Ui::TaskManagerEditorClass* ui)
 {
     connect(ui->actionNew_Panel, &QAction::triggered, this, &QTApplicationWidget::addPanel);
     connect(this, &QTabWidget::tabBarClicked, this, &QTApplicationWidget::changePanel);
+    connect(ui->actionEdit_Panel, &QAction::triggered, this, &QTApplicationWidget::editPanel);
 
 }
 
@@ -42,7 +43,7 @@ void QTApplicationWidget::addPanel(bool triggered)
 
         if (err.itsOk())
         {
-            
+
             setCurrentTab(createTab(text));
         }
         else
@@ -54,15 +55,41 @@ void QTApplicationWidget::addPanel(bool triggered)
 
 void QTApplicationWidget::refreshData()
 {
-    
+
     removeTabs();
 
     createTabsFromInfo();
 
 }
 
+void QTApplicationWidget::editPanel(bool triggered)
+{
+    bool ok;
+
+    auto old_title = QString(panelManager->getCurrentPanel()->getTitle().c_str());
+
+    QString text = QInputDialog::getText(
+        this,
+        QString("Change panel name"),
+        QString("New name (" + old_title + "):"),
+        QLineEdit::Normal,
+        "",
+        &ok);
+
+    if (ok && !text.isEmpty())
+    {
+        panelManager->getCurrentPanel()->setTitle(text.toUtf8().constData());
+
+       
+        TaskManagerEditor::getInstance()->refreshBoard();
+
+
+    }
+}
+
 void QTApplicationWidget::setCurrentTab(int index)
 {
+    panelManager->changeToPanel(index);
     setCurrentIndex(index);
 }
 
@@ -91,7 +118,7 @@ void QTApplicationWidget::createTabsFromInfo()
 
 int QTApplicationWidget::createTab(QString name)
 {
-    
+
     return addTab(new QTPanelWidget(name, this), name);
 
 }
@@ -104,6 +131,6 @@ void QTApplicationWidget::showError(TaskManager::TaskStatus_b err)
 
 void QTApplicationWidget::changePanel(int index)
 {
-    QTPanelWidget * currentState = (QTPanelWidget*)widget(index);
+    QTPanelWidget* currentState = (QTPanelWidget*)widget(index);
     panelManager->changeToPanel(currentState->getName().toUtf8().constData());
 }

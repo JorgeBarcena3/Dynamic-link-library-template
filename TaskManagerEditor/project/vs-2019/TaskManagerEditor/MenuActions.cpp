@@ -55,14 +55,14 @@ void MenuActions::saveAs(bool triggered)
 {
     defaultPath = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "SAV files (*.sav)");
 
-    checkError( panelExporter->exportData(defaultPath.toUtf8().constData()) );
+    checkError(panelExporter->exportData(defaultPath.toUtf8().constData()));
 }
 
 void MenuActions::exportXML(bool triggered)
 {
     QString filenames = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "XML files (*.xml)");
 
-    checkError( panelExporter->exportDataAsXML(filenames.toUtf8().constData()));
+    checkError(panelExporter->exportDataAsXML(filenames.toUtf8().constData()));
 
 }
 
@@ -71,10 +71,12 @@ void MenuActions::importXML(bool triggered)
     QStringList filenames = QFileDialog::getOpenFileNames(this, "Open file", QDir::currentPath(), "XML files (*.xml)");
 
     if (filenames.size() > 0)
-        checkError( panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()) );
+    {
+        checkError(panelLoader->importPanelAsXML(filenames[0].toUtf8().constData()));
 
-    TaskManagerEditor::getInstance()->refreshBoard();
-    activeFileButtons( TaskManagerEditor::getInstance()->getUI() );
+        TaskManagerEditor::getInstance()->refreshBoard();
+        activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+    }
 
 }
 
@@ -118,13 +120,16 @@ void MenuActions::executeLuaFile(bool triggered)
     if (filenames.size() > 0)
     {
         executeLuaCode(readFile(filenames[0]));
-    }        
+    }
 
 }
 
 void MenuActions::newFile(bool triggered)
 {
     save(triggered);
+
+    auto  m = ((TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager"));
+    m->createNewPanel();
 
     TaskManagerEditor::getInstance()->refreshBoard();
 
@@ -133,28 +138,31 @@ void MenuActions::newFile(bool triggered)
 
 }
 
+
 void MenuActions::activeFileButtons(Ui::TaskManagerEditorClass* ui)
 {
-    ui->actionXML_Export ->setEnabled(true);
-    ui->actionSave       ->setEnabled(true);
-    ui->actionSave_as    ->setEnabled(true);
-    ui->actionLua        ->setEnabled(true);
-    ui->actionLuaFile    ->setEnabled(true);
-    ui->actionNew_Panel  ->setEnabled(true);
-    ui->actionRefresh    ->setEnabled(true);
+    ui->actionXML_Export->setEnabled(true);
+    ui->actionSave->setEnabled(true);
+    ui->actionSave_as->setEnabled(true);
+    ui->actionLua->setEnabled(true);
+    ui->actionLuaFile->setEnabled(true);
+    ui->actionNew_Panel->setEnabled(true);
+    ui->actionRefresh->setEnabled(true);
+    ui->actionEdit_Panel->setEnabled(true);
 }
 
 void MenuActions::desactiveFileButtons(Ui::TaskManagerEditorClass* ui)
 {
     //ui->actionOpen->;
 
-    ui->actionXML_Export ->setEnabled(false);
-    ui->actionSave       ->setEnabled(false);
-    ui->actionSave_as    ->setEnabled(false);
-    ui->actionLua        ->setEnabled(false);
-    ui->actionLuaFile    ->setEnabled(false);
-    ui->actionNew_Panel  ->setEnabled(false);
-    ui->actionRefresh    ->setEnabled(false);
+    ui->actionXML_Export->setEnabled(false);
+    ui->actionSave->setEnabled(false);
+    ui->actionSave_as->setEnabled(false);
+    ui->actionLua->setEnabled(false);
+    ui->actionLuaFile->setEnabled(false);
+    ui->actionNew_Panel->setEnabled(false);
+    ui->actionRefresh->setEnabled(false);
+    ui->actionEdit_Panel->setEnabled(false);
 }
 
 void MenuActions::executeLuaCode(QString code)
@@ -199,10 +207,11 @@ void MenuActions::load(bool triggered)
     {
         defaultPath = filenames[0].toUtf8().constData();
         checkError(panelLoader->importPanel(defaultPath.toUtf8().constData()));
+        TaskManagerEditor::getInstance()->refreshBoard();
+        activeFileButtons(TaskManagerEditor::getInstance()->getUI());
     }
 
-    TaskManagerEditor::getInstance()->refreshBoard();
-    activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+
 
 
 }

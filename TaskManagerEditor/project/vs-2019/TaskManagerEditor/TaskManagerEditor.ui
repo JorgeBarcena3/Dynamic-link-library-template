@@ -152,6 +152,7 @@
    <addaction name="separator"/>
    <addaction name="actionRefresh"/>
    <addaction name="actionNew_Panel"/>
+   <addaction name="actionEdit_Panel"/>
    <addaction name="separator"/>
    <addaction name="actionXML_Export"/>
    <addaction name="actionXML_Import"/>
@@ -300,6 +301,15 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionEdit_Panel">
+   <property name="icon">
+    <iconset resource="TaskManagerEditor.qrc">
+     <normaloff>:/TaskManagerEditor/Modify.png</normaloff>:/TaskManagerEditor/Modify.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Panel</string>
    </property>
   </action>
  </widget>

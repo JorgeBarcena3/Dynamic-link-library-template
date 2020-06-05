@@ -29,6 +29,9 @@ public slots:
 
     void addPanel(bool triggered);
 
+    void editPanel(bool triggered);
+
+
 private:
 
     void setCurrentTab(int index);
@@ -42,4 +45,5 @@ private:
     void showError(TaskManager::TaskStatus_b err);
 
     void changePanel(int index);
+
 };

@@ -120,6 +120,15 @@ TaskStatus_b TaskManager::PanelManager::changeToPanel(string t)
     return TaskStatus_b("No se ha encontrado el panel al que quiere cambiar.", false);
 }
 
+void TaskManager::PanelManager::createNewPanel()
+{
+    string newPanelTitle = "Panel 1";
+
+    createPanel(newPanelTitle);
+    currentPanelId = 0;
+    addState("New State");
+}
+
 TaskStatus_b TaskManager::PanelManager::changeToPanel(int t)
 {
 
@@ -133,7 +142,7 @@ TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(strin
 
     if (s)
     {
-        return (new vector<TaskDto*> (s->getTasks()));
+        return (new vector<TaskDto*>(s->getTasks()));
     }
 
     return TaskStatus < vector<TaskDto* > >("No se ha encontrado el panel", nullptr);
@@ -141,7 +150,7 @@ TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(strin
 
 TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(string t = "")
 {
-    auto s = panels[currentPanelId]; 
+    auto s = panels[currentPanelId];
 
     if (s)
     {
@@ -153,21 +162,21 @@ TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(st
 
 TaskStatus<vector<PanelDto*>> TaskManager::PanelManager::getAllPanels()
 {
-    return new vector<PanelDto*>( panels );
+    return new vector<PanelDto*>(panels);
 }
 
 TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
-    scripting.vm->set("addState"          , [this](const char* t)    {this->addState(t);  });
-    scripting.vm->set("addTaskToState"    , [this](const char* st, const char* t, const char* d, const char* a) {this->addTaskToState(st,t,d,a);  });
-    scripting.vm->set("removeTaskOfState" , [this](const char* st, const char* t) {this->removeTaskofState(st, t);  });
-    scripting.vm->set("changeTaskToState" , [this](const char* st,  const char * t, const char * tst) {this->changeTaskToState(st, t, tst);  });
-    scripting.vm->set("removeState"       , [this](const char* t) { this->removeState(t);  });
-    scripting.vm->set("createPanel"       , [this](const char* t) { this->createPanel(t);  });
-    scripting.vm->set("changeToPanel"     , [this](const char* t) { this->changeToPanel(t);  });
-    scripting.vm->set("getTaskFromState"  , [this](const char* t) { this->getTaskFromState(t);  });
+    scripting.vm->set("addState", [this](const char* t) {this->addState(t);  });
+    scripting.vm->set("addTaskToState", [this](const char* st, const char* t, const char* d, const char* a) {this->addTaskToState(st, t, d, a);  });
+    scripting.vm->set("removeTaskOfState", [this](const char* st, const char* t) {this->removeTaskofState(st, t);  });
+    scripting.vm->set("changeTaskToState", [this](const char* st, const char* t, const char* tst) {this->changeTaskToState(st, t, tst);  });
+    scripting.vm->set("removeState", [this](const char* t) { this->removeState(t);  });
+    scripting.vm->set("createPanel", [this](const char* t) { this->createPanel(t);  });
+    scripting.vm->set("changeToPanel", [this](const char* t) { this->changeToPanel(t);  });
+    scripting.vm->set("getTaskFromState", [this](const char* t) { this->getTaskFromState(t);  });
     scripting.vm->set("getStatesFromPanel", [this](const char* t) { this->getStatesFromPanel(t);  });
-    scripting.vm->set("getAllPanels"      , [this]()              { this->getAllPanels();  });
+    scripting.vm->set("getAllPanels", [this]() { this->getAllPanels();  });
 
     return true;
 }
