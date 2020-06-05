@@ -29,7 +29,12 @@ private:
 public:
 
     MenuActions(QMainWindow * parent, Ui::TaskManagerEditorClass * ui);
+
     ~MenuActions();
+
+    void activeFileButtons(Ui::TaskManagerEditorClass* ui);
+
+    void desactiveFileButtons(Ui::TaskManagerEditorClass* ui);
 
 public slots:
 
@@ -58,14 +63,9 @@ public slots:
     void removePanel(bool triggered);
 
 private:
-
-    void activeFileButtons(Ui::TaskManagerEditorClass* ui);
-
-    void desactiveFileButtons(Ui::TaskManagerEditorClass * ui);
+    
 
     void executeLuaCode(QString code);
-
-    QString readFile(QString path);
 
     void checkError(TaskManager::TaskStatus_b err);
 

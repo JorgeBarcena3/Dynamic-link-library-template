@@ -9,6 +9,14 @@ TaskManagerEditor::TaskManagerEditor(QWidget* parent)
 {
     TaskManagerEditor::instance = this;
 
+    auto mamanger = (TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager");
+
+    if (mamanger->getAllPanels().getReturnObj().size() > 0)
+    {
+        menuActions.activeFileButtons(&ui);
+        refreshBoard();
+    }
+
 }
 
 void TaskManagerEditor::showError(TaskManager::TaskStatus_b a)
