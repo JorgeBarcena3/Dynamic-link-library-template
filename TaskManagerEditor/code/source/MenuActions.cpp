@@ -125,8 +125,12 @@ void MenuActions::executeLuaFile(bool triggered)
 
     if (filenames.size() > 0)
     {
-        executeLuaCode(readFile(filenames[0]));
+        auto scripting = (TaskManager::LuaScripting*) TaskManager::Aplication::instance()->getComponent("scriptingComponent");
+        scripting->execFile(filenames[0].toUtf8().constData());
     }
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
 
 }
 
@@ -231,28 +235,6 @@ void MenuActions::executeLuaCode(QString code)
 
 }
 
-QString MenuActions::readFile(QString path)
-{
-    std::string data = "";
-
-    string line;
-    ifstream myfile(path.toUtf8().constData());
-
-    if (myfile.is_open())
-    {
-        while (std::getline(myfile, line))
-        {
-            data += line;
-        }
-
-        myfile.close();
-    }
-
-    return QString(data.c_str());
-}
-
-
-
 void MenuActions::load(bool triggered)
 {
 
@@ -265,9 +247,7 @@ void MenuActions::load(bool triggered)
         TaskManagerEditor::getInstance()->refreshBoard();
         activeFileButtons(TaskManagerEditor::getInstance()->getUI());
     }
-
-
-
+       
 
 }
 

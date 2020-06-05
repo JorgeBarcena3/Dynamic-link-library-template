@@ -31,7 +31,6 @@ public slots:
 
     void editPanel(bool triggered);
 
-
 private:
 
     void setCurrentTab(int index);

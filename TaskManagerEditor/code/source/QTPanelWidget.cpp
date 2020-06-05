@@ -40,7 +40,7 @@ void QTPanelWidget::refreshPanel()
     std::vector<int> printed;
     
 
-    for (size_t i = 0; i < max_per_page && std::find(printed.begin(), printed.end(), fixed_index) == printed.end(); i++)
+    for (size_t i = 0; i < max_per_page && std::find(printed.begin(), printed.end(), fixed_index) == printed.end() && fixed_index < states.size(); i++)
     {
         ui.horizontalLayout->addWidget(new QTStateWidget(states[fixed_index], this));
         printed.push_back(fixed_index);

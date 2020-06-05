@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\headers\Example.hpp">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\code\headers\Aplication.hpp">
       <Filter>headers</Filter>
     </ClInclude>
@@ -59,9 +56,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\code\source\Example.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\code\source\Aplication.cpp">
       <Filter>source</Filter>
     </ClCompile>

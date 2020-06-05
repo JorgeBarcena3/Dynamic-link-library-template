@@ -19,12 +19,14 @@ void QTApplicationWidget::connectSignals(Ui::TaskManagerEditorClass* ui)
     connect(ui->actionNew_Panel, &QAction::triggered, this, &QTApplicationWidget::addPanel);
     connect(this, &QTabWidget::tabBarClicked, this, &QTApplicationWidget::changePanel);
     connect(ui->actionEdit_Panel, &QAction::triggered, this, &QTApplicationWidget::editPanel);
+    connect(ui->actionRefresh, &QAction::triggered, this, &QTApplicationWidget::refreshData);
 
 }
 
 QTApplicationWidget::~QTApplicationWidget()
 {
 }
+
 
 void QTApplicationWidget::addPanel(bool triggered)
 {

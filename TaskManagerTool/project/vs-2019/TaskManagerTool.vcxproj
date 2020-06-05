@@ -101,7 +101,6 @@ xcopy /y "..\..\lib\$(ProjectName)\*.lib" "..\..\..\TaskManagerEditor\lib\$(Proj
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\Aplication.hpp" />
     <ClInclude Include="..\..\code\headers\Component.hpp" />
-    <ClInclude Include="..\..\code\headers\Example.hpp" />
     <ClInclude Include="..\..\code\headers\LuaScripting.hpp" />
     <ClInclude Include="..\..\code\headers\PanelDto.hpp" />
     <ClInclude Include="..\..\code\headers\PanelExporter.hpp" />
@@ -115,7 +114,6 @@ xcopy /y "..\..\lib\$(ProjectName)\*.lib" "..\..\..\TaskManagerEditor\lib\$(Proj
   <ItemGroup>
     <ClCompile Include="..\..\code\source\Aplication.cpp" />
     <ClCompile Include="..\..\code\source\Component.cpp" />
-    <ClCompile Include="..\..\code\source\Example.cpp" />
     <ClCompile Include="..\..\code\source\LuaScripting.cpp" />
     <ClCompile Include="..\..\code\source\PanelDto.cpp" />
     <ClCompile Include="..\..\code\source\PanelExporter.cpp" />

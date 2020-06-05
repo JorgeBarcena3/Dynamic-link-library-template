@@ -41,6 +41,8 @@ namespace TaskManager
 
         TaskManager::TaskStatus_b exec(const std::string& luaCode);
 
+        TaskManager::TaskStatus_b execFile(const std::string& luaFilePath);
+
 
     };
 
