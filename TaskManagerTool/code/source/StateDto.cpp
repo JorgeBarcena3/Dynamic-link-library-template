@@ -1,11 +1,17 @@
 #include "..\headers\StateDto.hpp"
 
+TaskManager::StateDto::~StateDto()
+{
+
+   
+}
+
 TaskManager::TaskStatus_b TaskManager::StateDto::addTask(TaskDto t)
 {
     if (!itsCreated(t.getTitle()))
     {
-        task.push_back(new TaskDto(t));
-        task.at(task.size() - 1)->setState(this);
+        tasks.push_back(new TaskDto(t));
+        tasks.at(tasks.size() - 1)->setState(this);
         return true;
 
     }
@@ -13,13 +19,13 @@ TaskManager::TaskStatus_b TaskManager::StateDto::addTask(TaskDto t)
     return TaskManager::TaskStatus_b("Tarea con el nombre [" + t.getTitle() + "] ya creada", false);
 }
 
-TaskManager::TaskStatus_b TaskManager::StateDto::removeState(string title)
+TaskManager::TaskStatus_b TaskManager::StateDto::removeTask(string title)
 {
-    for(int i = 0; i < task.size(); i++)
+    for(int i = 0; i < tasks.size(); i++)
     {
-        if (task[i]->getTitle() == title)
+        if (tasks[i]->getTitle() == title)
         {
-            task.erase(task.begin() + i);
+            tasks.erase(tasks.begin() + i);
             return true;
         }
     }
@@ -29,7 +35,7 @@ TaskManager::TaskStatus_b TaskManager::StateDto::removeState(string title)
 
 TaskManager::TaskDto* TaskManager::StateDto::getTask(string t)
 {
-    for (auto s : task)
+    for (auto s : tasks)
     {
         if (s->getTitle() == t)
             return s;
@@ -39,7 +45,7 @@ TaskManager::TaskDto* TaskManager::StateDto::getTask(string t)
 
 bool TaskManager::StateDto::itsCreated(string t)
 {
-    for (auto s : task)
+    for (auto s : tasks)
     {
         if (s->getTitle() == t)
             return true;

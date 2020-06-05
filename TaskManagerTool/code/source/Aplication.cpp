@@ -5,7 +5,6 @@
 #include "..\headers\PanelExporter.hpp"
 #include "..\headers\PanelManager.hpp"
 
-
 using namespace TaskManager;
 
 Aplication * Aplication::app = nullptr;

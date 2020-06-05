@@ -21,6 +21,7 @@
 #include "Aplication.hpp"
 #include "TaskStatus.hpp"
 
+
 namespace lua
 {
     class State;
@@ -31,13 +32,22 @@ namespace TaskManager
 
     class LuaScripting;
 
+    /**
+    * Componente base que tendra la herramienta
+    */
     class TASKMANAGERAPI Component
     {
 
     public:
 
+        /**
+        * Funcion que inicializa las acciones que se pueden ejecutar atraves de LUA desde cada componente
+        */
         virtual TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting);
 
+        /**
+        * Destructor por defecto
+        */
         ~Component() {};
 
     };

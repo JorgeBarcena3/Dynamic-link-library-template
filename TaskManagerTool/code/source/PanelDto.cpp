@@ -16,7 +16,7 @@ TaskManager::TaskStatus_b TaskManager::PanelDto::addState(StateDto t)
 
 }
 
-TaskManager::TaskStatus_b TaskManager::PanelDto::removeState(string title)
+TaskManager::TaskStatus_b TaskManager::PanelDto::removeTask(string title)
 {
     for (int i = 0; i < states.size(); i++)
     {

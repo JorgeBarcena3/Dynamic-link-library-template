@@ -27,66 +27,101 @@ using namespace std;
 namespace TaskManager
 {
 
-
+    /**
+    * Clase que devuelve la informacion de la tarea
+    */
     template<class T>
     class TaskStatus
     {
 
     private:
 
-        string error;
+        string error; ///< Error en caso de que lo hubiera
 
-        T* returnObj;
+        T* returnObj; ///< Objeto que retorna si todo va OK
 
     public:
 
+        /**
+        * Constructor que exige el error (si lo hay), y el objeto a retornar
+        */
         TaskStatus(string e, T* s) : error(e), returnObj(s)
         {
 
         }
 
+        /**
+        * Constructor que exige el objeto a retornar
+        */
         TaskStatus(T* s) : returnObj(s), error("")
         {
 
         }
 
+        /**
+        * Devuelve el error
+        */
         inline string getError() { return error; };
 
+        /**
+        * Devuelve el objeto
+        */
         inline T getReturnObj() { return *returnObj; };
 
+        /**
+        * Devuelve si la tarea es ok
+        */
         inline bool itsOk() { return returnObj != nullptr; };
 
     };
 
 
+    /**
+    * Especializacion de la clase de TaskStatus
+    */
     template <>
     class TaskStatus<bool>
     {
     private:
 
-        string error;
+        string error; ///< Error en caso de que lo hubiera
 
-        bool returnObj;
+        bool returnObj; ///< Objeto que retorna si todo va OK
 
     public:
 
+        /**
+        * Constructor que exige el error (si lo hay), y el objeto a retornar
+        */
         TaskStatus(string e, bool s) : error(e), returnObj(s)
         {
 
         }
 
+        /**
+        * Constructor que exige el objeto a retornar
+        */
         TaskStatus(bool s) : returnObj(s), error("")
         {
 
         }
 
+        /**
+        * Devuelve si la tarea es ok
+        */
         inline bool itsOk() { return returnObj; };
 
+        /**
+        * Devuelve el error
+        */
         inline string getError() { return error; };
 
 
     };
 
+    /**
+    * Typedef de la especificacion de TaskStatus
+    */
     typedef TaskStatus<bool> TaskStatus_b;
 
    

@@ -30,40 +30,66 @@ using namespace std;
 namespace TaskManager
 {
 
-
+    /**
+    * Guarda los datos de cada panel
+    */
     class PanelDto
     {
 
 
     private:
 
-        std::string title;
+        std::string title; ///< Titulo del panel
 
-        vector<StateDto*> states;
+        vector<StateDto*> states; ///< Cantidad de estados que tiene
 
     public:
 
-        PanelDto() = default;
+        /**
+        * Constructor por defecto
+        */
+        PanelDto() {}
 
-        PanelDto(string t) : title(t)
-        {
+        /**
+        * Constructor que pide un titulo para el panel
+        */
+        PanelDto(string t) : title(t) { }
 
-        }
-
-        inline vector<StateDto*> getStates() { return states; };
-
+        /**
+        * Añade un estado al panel
+        */
         TaskStatus_b addState(StateDto t);
 
-        TaskStatus_b removeState(string title);
+        /**
+        * Elimina un estado
+        */
+        TaskStatus_b removeTask(string title);
 
+        /**
+        * Devuelve el estado con el mismo titulo
+        */
         StateDto* getState(string title);
 
-        inline std::string getTitle() { return title; };
+        /**
+        * Devuelve todos los estados
+        */
+        inline vector<StateDto*> getStates() { return states; }
 
-        inline void setTitle(std::string t) { title = t; };
+        /**
+        * Devuelve el titulo del panel
+        */
+        inline std::string getTitle() { return title; }
+
+        /**
+        * Determina el titulo del panel
+        */
+        inline void setTitle(std::string t) { title = t; }
 
     private:
 
+        /**
+        * Determina si un estado ya ha sido creado
+        */
         bool itsCreated(string t);
 
     };

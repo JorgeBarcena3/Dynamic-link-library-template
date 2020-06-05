@@ -32,34 +32,54 @@ namespace TaskManager
     class Component;
     class LuaScripting;
 
+    /**
+    * Administrador de toda la aplicacion
+    */
     class TASKMANAGERAPI Aplication
     {
 
     private:
 
-        static Aplication * app;
+        static Aplication * app; ///< Instancia de la aplicacion
 
     public:
 
-        static Aplication* instance();
+        static Aplication* instance(); ///< Devuelve la instancia actual de la aplicacion
 
     private:
 
+        /**
+        * Componentes de la aplicacion
+        */
         std::map<std::string, TaskManager::Component* >  * aplicationComponents;
+
+
+    private:
+
+        /**
+        * Constructor que solos se puede acceder desde dentro de la clase
+        */
+        Aplication();
 
 
     public:
               
 
+        /**
+        * Destructor de la apliacion
+        */
         ~Aplication();
 
+        /**
+        * Devuelve el componente de scripting de la aplicacion
+        */
         LuaScripting& getScripting();
 
+        /**
+        * Devuelve un componente en concreto
+        */
         TaskManager::Component* getComponent(std::string name);
 
-    protected:
-
-        Aplication();
 
 
 

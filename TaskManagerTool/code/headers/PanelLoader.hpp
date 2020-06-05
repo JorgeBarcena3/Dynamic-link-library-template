@@ -27,19 +27,36 @@
 
 namespace TaskManager
 {
+
+    /**
+    * Realiza todas las tareas de importacion de los datos de la herramienta
+    */
     class TASKMANAGERAPI PanelLoader : public Component
     {
 
     public:
 
+        /**
+        * Importa los datos de la herramienta desde un XML
+        */
         TaskStatus_b importPanelAsXML(std::string path);
 
+
+        /**
+        * Importa los datos de la herramienta desde un fichero binario
+        */
         TaskStatus_b importPanel(std::string path);
 
+        /**
+        * Funcion que inicializa las acciones que se pueden ejecutar atraves de LUA desde cada componente
+        */
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     private:
 
+        /**
+        * Parsea unos datos de XML al modelo de datos de la herramienta
+        */
         TaskStatus_b parseXML(char* data);
 
     };

@@ -33,9 +33,9 @@ void QTStateWidget::refreshPanel(TaskManager::StateDto* state)
     auto tasks = state->getTasks();
 
     auto layout = ui.scrollAreaWidgetContents->findChild<QVBoxLayout*>("verticalLayout");
-    for (auto task : tasks)
+    for (auto tasks : tasks)
     {
-        layout->addWidget(new QTaskWidget(*task, ui.scrollAreaWidgetContents));
+        layout->addWidget(new QTaskWidget(*tasks, ui.scrollAreaWidgetContents));
     }
 
 }
@@ -91,7 +91,7 @@ void QTStateWidget::change_state_name()
 
 void QTStateWidget::remove_state()
 {
-    TaskManagerEditor::getInstance()->showError(panelManager->removeState(ui.titulo_estado->text().toUtf8().constData()));
+    TaskManagerEditor::getInstance()->showError(panelManager->removeTask(ui.titulo_estado->text().toUtf8().constData()));
     TaskManagerEditor::getInstance()->refreshBoard();
 
 }

@@ -27,19 +27,35 @@
 
 namespace TaskManager
 {
+
+    /**
+    * Realiza todas las tareas de exportacion de los datos de la herramienta
+    */
     class TASKMANAGERAPI PanelExporter : public Component
     {
 
     public:
 
+        /**
+        * Exporta los datos actuales a un formato XML
+        */
         TaskStatus_b exportDataAsXML(std::string directory);
 
+        /**
+        * Exporta los datos actuales a un formato binario con extension .SAV
+        */
         TaskStatus_b exportData(std::string directory);
 
+        /**
+        * Funcion que inicializa las acciones que se pueden ejecutar atraves de LUA desde cada componente
+        */
         TaskStatus_b initializeLuaScripting(TaskManager::LuaScripting& scripting) override;
 
     private:
 
+        /**
+        * Crea el archivo XML a raiz de los datos de la herramienta
+        */
         string createXML();
 
     };

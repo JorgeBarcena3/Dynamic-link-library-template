@@ -7,8 +7,8 @@
 #include <PanelDto.hpp>
 #include <QMessageBox>
 
-QTaskWidget::QTaskWidget(TaskManager::TaskDto& task, QWidget* parent)
-    : QWidget(parent), currentTask(&task)
+QTaskWidget::QTaskWidget(TaskManager::TaskDto& tasks, QWidget* parent)
+    : QWidget(parent), currentTask(&tasks)
 {
 
     manager = (TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager");
@@ -17,7 +17,7 @@ QTaskWidget::QTaskWidget(TaskManager::TaskDto& task, QWidget* parent)
 
     connectSignals();
 
-    currentTask = &task;
+    currentTask = &tasks;
 
     refresh_info();
 

@@ -28,19 +28,32 @@
 
 namespace TaskManager
 {
+
+    /**
+    * Componente que se encarga de ejecutar el codigo LUA en nuestra aplicacion
+    */
     class TASKMANAGERAPI LuaScripting : public Component
     {
 
     public:
 
-        lua::State * vm;
+        lua::State * vm; ///< Maquina virtual de LUA
 
     public:
 
+        /**
+        * Constructor por defecto
+        */
         LuaScripting();
 
+        /**
+        * Ejecuta un fragmmento de codigo de LUA
+        */
         TaskManager::TaskStatus_b exec(const std::string& luaCode);
 
+        /**
+        * Ejecuta un archivo de LUA
+        */
         TaskManager::TaskStatus_b execFile(const std::string& luaFilePath);
 
 

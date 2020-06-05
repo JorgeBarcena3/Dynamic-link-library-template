@@ -32,42 +32,83 @@ namespace TaskManager
 
     class PanelDto;
 
+    /**
+    * Guarda los datos de cada estado
+    */
     class StateDto
     {
 
 
     private:
 
-        std::string title;
+        std::string title; ///< Titulo del estado
 
-        vector<TaskDto *> task;
+        vector<TaskDto *> tasks; ///< Tareas de cada estado
 
-        PanelDto * panel;
+        PanelDto * panel; ///< Panel al que pertenece
 
     public:
 
-        StateDto() = default;
+        /**
+        * Constructor por defecto
+        */
+        StateDto() {}
 
+        /**
+        * Destructor por defecto
+        */
+        ~StateDto();
+
+        /**
+        * Constructor que exige dos parametros
+        */
         StateDto(string t, PanelDto * p) : title(t), panel(p) { };
 
-        inline vector<TaskDto*> getTasks() { return task; };
-
+        /**
+        * Añade una tarea al estado
+        */
         TaskStatus_b addTask(TaskDto t);
 
-        TaskStatus_b removeState(string title);
+        /**
+        * Elimina una tarea
+        */
+        TaskStatus_b removeTask(string title);
 
+        /**
+        * Devuelve una tarea
+        */
         TaskDto * getTask(string t);
 
+        /**
+        * Devuelve la totalidad de las tareas
+        */
+        inline vector<TaskDto*> getTasks() { return tasks; };
+
+        /**
+        * Determina al panel que pertence
+        */
         inline void setPanel(PanelDto* p) { panel = p; };
 
+        /**
+        * Devuelve el panel al que pertence
+        */
         inline PanelDto* getPanel() { return panel; };
 
+        /**
+        * Devuelve el titulo del estado
+        */
         inline std::string getTitle() { return title; };
 
+        /**
+        * Determina el titulo 
+        */
         inline void setTitle(std::string t) { title = t; };
 
     private:
 
+        /**
+        * Determina si una tarea es creada o no
+        */
         bool itsCreated(string t);
 
         

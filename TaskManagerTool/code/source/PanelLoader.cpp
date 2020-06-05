@@ -3,11 +3,12 @@
 #include <sstream>
 #include <string>
 #include <fstream>
+#include <bitset>
 
 #include "../headers/PanelLoader.hpp"
 #include "../headers/LuaScripting.hpp"
+#include "LuaState.h"
 #include "../headers/PanelManager.hpp"
-#include <bitset>
 
 TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanelAsXML(std::string path)
 {
@@ -60,7 +61,8 @@ TaskManager::TaskStatus_b TaskManager::PanelLoader::importPanel(std::string path
 
 TaskManager::TaskStatus_b TaskManager::PanelLoader::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
-    //scripting.vm->set("loadScene", [this](const char* path) {this->loadScene(path);  });
+    scripting.vm->set("importPanelAsXML", [this](const char* path) {this->importPanelAsXML(path);  });
+    scripting.vm->set("importPanel", [this](const char* path) {this->importPanel(path);  });
 
     return true;
 }

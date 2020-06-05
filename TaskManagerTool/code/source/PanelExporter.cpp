@@ -1,13 +1,16 @@
 #include "../headers/PanelExporter.hpp"
 #include "../headers/PanelDto.hpp"
+#include "../headers/Aplication.hpp"
+#include "../headers/PanelManager.hpp"
+#include "../headers/LuaScripting.hpp"
+#include "LuaState.h"
+
+#include <bitset>
 #include "rapidxml_ext.hpp"
 #include <fstream>
 #include <sstream>
 #include <ctime>
 #include <string>
-#include "../headers/Aplication.hpp"
-#include "../headers/PanelManager.hpp"
-#include <bitset>
 
 
 using namespace rapidxml;
@@ -71,6 +74,9 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
 
 TaskManager::TaskStatus_b TaskManager::PanelExporter::initializeLuaScripting(TaskManager::LuaScripting& scripting)
 {
+    scripting.vm->set("exportData", [this](const char* t) { this->exportData(t);  });
+    scripting.vm->set("exportDataAsXML", [this](const char* t) { this->exportDataAsXML(t);  });
+
     return true;
 }
 
@@ -105,24 +111,24 @@ string TaskManager::PanelExporter::createXML()
             state_node->append_attribute(doc.allocate_attribute("Title", doc.allocate_string(state->getTitle().c_str())));
             auto name = state->getTitle();
 
-            for (auto task : manager->getTaskFromState(state->getTitle()).getReturnObj())
+            for (auto tasks : manager->getTaskFromState(state->getTitle()).getReturnObj())
             {
                 xml_node<>* task_node = doc.allocate_node(node_element, "Task");
 
                 xml_node<>* title_node = doc.allocate_node(node_element, "Title");
-                title_node->value(doc.allocate_string(task->getTitle().c_str()));
+                title_node->value(doc.allocate_string(tasks->getTitle().c_str()));
                 task_node->append_node(title_node);
 
                 xml_node<>* descp_node = doc.allocate_node(node_element, "Description");
-                descp_node->value(doc.allocate_string(task->getDescription().c_str()));
+                descp_node->value(doc.allocate_string(tasks->getDescription().c_str()));
                 task_node->append_node(descp_node);
 
                 xml_node<>* assing_node = doc.allocate_node(node_element, "Assign");
-                assing_node->value(doc.allocate_string(task->getAssigned().c_str()));
+                assing_node->value(doc.allocate_string(tasks->getAssigned().c_str()));
                 task_node->append_node(assing_node);
 
                 xml_node<>* date_node = doc.allocate_node(node_element, "Date");
-                date_node->value(doc.allocate_string(to_string(task->getCreationDate()).c_str()));
+                date_node->value(doc.allocate_string(to_string(tasks->getCreationDate()).c_str()));
                 task_node->append_node(date_node);
 
 

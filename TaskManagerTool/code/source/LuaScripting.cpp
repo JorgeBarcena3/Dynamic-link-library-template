@@ -12,7 +12,7 @@ TaskManager::TaskStatus_b TaskManager::LuaScripting::exec(const std::string& lua
 {
     try
     {
-        vm->doString(luaCode);
+        auto s = vm->doString(luaCode);
         return true;
     }
     catch (exception e)
@@ -26,7 +26,7 @@ TaskManager::TaskStatus_b TaskManager::LuaScripting::execFile(const std::string&
 {
     try
     {
-        vm->doFile(luaCode);
+        auto s = vm->doFile(luaCode);
         return true;
     }
     catch (exception e)

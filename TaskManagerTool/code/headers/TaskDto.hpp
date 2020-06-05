@@ -30,31 +30,32 @@ namespace TaskManager
 
     class StateDto;
 
+    /**
+    * Guarda los datos de cada tarea
+    */
     class TaskDto
     {
 
 
     private:
 
-        unsigned int id; ///< Id de la tarea
+        string title; ///< Titulo de la tarea
 
-        string title;
+        string description; ///< Descripcion de la tarea
 
-        string description;
+        string assigned; ///< Persona que llevará a cargo la tarea
 
-        string assigned;
+        time_t  creationDate; ///< Fecha de creacion
 
-        time_t  creationDate;
-
-        StateDto* stateDto;
+        StateDto* stateDto; ///< Estado al que pertenece
 
     public:
 
+        /**
+        * Constructor de la tarea
+        */
         TaskDto(string tit, string descp, string assign, time_t creation)
         {
-            static int global_id = 0;
-
-            id = global_id++;
 
             title = tit;
             description = descp;
@@ -63,16 +64,29 @@ namespace TaskManager
 
         }
 
-        inline unsigned int getId() { return id; };
-
+        /**
+        * Devuelve el titulo de la tarea
+        */
         inline string getTitle() { return title; };
 
+        /**
+        * Devuelve la descripcion de la tarea
+        */
         inline string getDescription() { return description; };
 
+        /**
+        * Devuelve el usuario asignado a la tarea
+        */
         inline string getAssigned() { return assigned; };
 
+        /**
+        * Devuelve la fecha de creacion
+        */
         inline time_t  getCreationDate() { return creationDate; };
 
+        /**
+        * Devuelve la fecha de creacion formateado
+        */
         string getCreationDateString()
         {
             char buff[20];
@@ -85,17 +99,32 @@ namespace TaskManager
             return string(buff);
         };
 
+        /**
+        * Devuelve el estado de la tarea
+        */
         inline StateDto& getStateDto() { return *stateDto; };
 
+        /**
+        * Determina el estado de la tarea
+        */
         inline void setState(StateDto* s) { stateDto = s; };
 
+        /**
+        * Determina el titulo de la tarea
+        */
         inline void setTitle(string text) { title = text; }
 
+        /**
+        * Determina la descripcion de la tarea
+        */
         inline void setDescription(string text) { description = text; }
 
+        /**
+        * Determina aquien esta asginado la tarea
+        */
         inline void setAssigned(string text) { assigned = text; }
 
-        inline void setDate(time_t  date) { creationDate = date; }
+      
 
     };
 

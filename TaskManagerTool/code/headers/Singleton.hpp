@@ -20,6 +20,10 @@
 
 namespace TaskManager
 {
+
+    /**
+    * Template de la clase Singelton
+    */
     template <class T>
     class TASKMANAGERAPI Singleton
     {

@@ -65,7 +65,7 @@ TaskStatus_b TaskManager::PanelManager::removeTaskofState(string stateTitle, str
 
     if (s)
     {
-        return s->removeState(t);
+        return s->removeTask(t);
 
     }
 
@@ -81,16 +81,16 @@ TaskStatus_b TaskManager::PanelManager::changeTaskToState(string stateTile, stri
     if (s)
     {
 
-        auto task = s->getTask(t);
+        auto tasks = s->getTask(t);
 
-        if (task)
+        if (tasks)
         {
-            err = s->removeState(t);
+            err = s->removeTask(t);
 
             if (err.itsOk())
             {
                 auto ns = (*panels)[currentPanelId]->getState(toStateTitle);
-                return ns->addTask(*task);
+                return ns->addTask(*tasks);
             }
 
 
@@ -100,17 +100,17 @@ TaskStatus_b TaskManager::PanelManager::changeTaskToState(string stateTile, stri
             return TaskManager::TaskStatus_b("Tarea con el nombre [" + t + "] en el estado [" + stateTile + "] no econtrado", false);
         }
 
-        return s->removeState(t);
+        return s->removeTask(t);
 
     }
 
     return TaskManager::TaskStatus_b("Estado con el nombre [" + stateTile + "] no econtrado", false);
 }
 
-TaskStatus_b TaskManager::PanelManager::removeState(string t)
+TaskStatus_b TaskManager::PanelManager::removeTask(string t)
 {
 
-    return (*panels)[currentPanelId]->removeState(t);
+    return (*panels)[currentPanelId]->removeTask(t);
 
 }
 
@@ -177,7 +177,6 @@ TaskStatus_b TaskManager::PanelManager::changeStatusName(string old, string newN
     }
 }
 
-
 TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(string t)
 {
     auto s = (*panels)[currentPanelId]->getState(t);
@@ -221,7 +220,7 @@ TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaS
     scripting.vm->set("addTaskToState", [this](const char* st, const char* t, const char* d, const char* a) {this->addTaskToState(st, t, d, a);  });
     scripting.vm->set("removeTaskOfState", [this](const char* st, const char* t) {this->removeTaskofState(st, t);  });
     scripting.vm->set("changeTaskToState", [this](const char* st, const char* t, const char* tst) {this->changeTaskToState(st, t, tst);  });
-    scripting.vm->set("removeState", [this](const char* t) { this->removeState(t);  });
+    scripting.vm->set("removeState", [this](const char* t) { this->removeTask(t);  });
     scripting.vm->set("createPanel", [this](const char* t) { this->createPanel(t);  });
     scripting.vm->set("changeToPanel", [this](const char* t) { this->changeToPanel(t);  });
     scripting.vm->set("getTaskFromState", [this](const char* t) { this->getTaskFromState(t);  });
@@ -230,4 +229,3 @@ TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaS
 
     return true;
 }
-

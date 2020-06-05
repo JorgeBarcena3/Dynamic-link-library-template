@@ -129,7 +129,6 @@
     <ClCompile Include="..\..\..\code\source\QTaskWidget.cpp" />
     <ClCompile Include="..\..\..\code\source\QTPanelWidget.cpp" />
     <ClCompile Include="..\..\..\code\source\QTStateWidget.cpp" />
-    <ClCompile Include="..\..\..\code\source\QTTaskWidget.cpp" />
     <ClCompile Include="..\..\..\code\source\TaskManagerEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +139,6 @@
       <PathPrefix Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </PathPrefix>
     </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="..\..\..\code\headers\QTTaskWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\..\..\code\headers\TaskManagerEditor.h" />
