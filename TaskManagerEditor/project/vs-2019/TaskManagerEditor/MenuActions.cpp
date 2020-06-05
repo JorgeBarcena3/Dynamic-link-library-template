@@ -10,6 +10,7 @@
 #include <qinputdialog.h>
 #include <fstream>
 #include "../../../code/headers/TaskManagerEditor.h"
+#include <QMessageBox>
 
 
 MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
@@ -31,6 +32,7 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
     connect(ui->actionLuaFile, SIGNAL(triggered(bool)), this, SLOT(executeLuaFile(bool)));
     connect(ui->actionNew, SIGNAL(triggered(bool)), this, SLOT(newFile(bool)));
     connect(ui->actionClose, SIGNAL(triggered(bool)), parent, SLOT(close()));
+    connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), this, SLOT(closeApplication()));
 
     ui->panelWidget->connectSignals(ui);
 
@@ -134,6 +136,24 @@ void MenuActions::newFile(bool triggered)
     TaskManagerEditor::getInstance()->refreshBoard();
 
     activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+
+
+}
+
+void MenuActions::closeApplication()
+{
+
+    if (TaskManagerEditor::getInstance()->getUI()->actionSave->isEnabled())
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Save", "Do you want to save the file?",
+            QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::Yes)
+        {
+            save(false);
+        }
+    }
 
 
 }

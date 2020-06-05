@@ -38,7 +38,7 @@ namespace TaskManager
 
         unsigned int id; ///< Id de la tarea
 
-        string title; 
+        string title;
 
         string description;
 
@@ -46,7 +46,7 @@ namespace TaskManager
 
         time_t  creationDate;
 
-        StateDto * stateDto;
+        StateDto* stateDto;
 
     public:
 
@@ -73,9 +73,19 @@ namespace TaskManager
 
         inline time_t  getCreationDate() { return creationDate; };
 
-        string getCreationDateString();
+        string getCreationDateString()
+        {
+            char buff[20];
 
-        StateDto & getStateDto();
+            tm timeinfo;
+            localtime_s(&timeinfo, &creationDate);
+
+            strftime(buff, 20, "%Y-%m-%d %H:%M:%S", &timeinfo);
+
+            return string(buff);
+        };
+
+        StateDto& getStateDto();
 
         inline void setState(StateDto* s) { stateDto = s; };
 

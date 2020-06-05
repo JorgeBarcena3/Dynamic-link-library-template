@@ -53,6 +53,8 @@ public slots:
 
     void newFile(bool triggered);
 
+    void closeApplication();
+
 private:
 
     void activeFileButtons(Ui::TaskManagerEditorClass* ui);

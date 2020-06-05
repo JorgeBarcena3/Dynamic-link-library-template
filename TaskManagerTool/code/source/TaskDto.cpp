@@ -3,17 +3,17 @@
 #include <time.h>
 
 
-string TaskManager::TaskDto::getCreationDateString()
-{
-    char buff[20];
-
-    tm timeinfo;
-    localtime_s(&timeinfo, &creationDate);
-
-    strftime(buff, 20, "%Y-%m-%d %H:%M:%S", &timeinfo);
-
-    return string(buff);
-}
+//string TaskManager::TaskDto::getCreationDateString()
+//{
+//    /*char buff[20];
+//
+//    tm timeinfo;
+//    localtime_s(&timeinfo, &creationDate);
+//
+//    strftime(buff, 20, "%Y-%m-%d %H:%M:%S", &timeinfo);*/
+//
+//    return string("");
+//}
 
 TaskManager::StateDto& TaskManager::TaskDto::getStateDto()
 {
