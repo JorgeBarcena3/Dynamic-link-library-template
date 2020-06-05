@@ -4,6 +4,7 @@
 
 #include "../headers/PanelManager.hpp"
 #include "../headers\PanelDto.hpp"
+#include "../headers\StateDto.hpp"
 
 using namespace TaskManager;
 
@@ -136,6 +137,26 @@ TaskStatus_b TaskManager::PanelManager::changeToPanel(int t)
     return true;
 }
 
+TaskStatus_b TaskManager::PanelManager::changeStatusName(string old, string newName)
+{
+    if (getCurrentPanel()->getState(newName) != nullptr)
+    {
+        return TaskManager::TaskStatus_b("Ya existe un panel con el siguiente nombre: " + newName, false);
+    }
+
+    try
+    {
+        getCurrentPanel()->getState(old)->setTitle(newName);
+        return true;
+    }
+    catch (exception e)
+    {
+        return TaskManager::TaskStatus_b("No se ha encontrado un panel con el siguiente nombre: " + old, false);
+
+    }
+}
+
+
 TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(string t)
 {
     auto s = panels[currentPanelId]->getState(t);
@@ -158,6 +179,13 @@ TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(st
     }
 
     return TaskStatus < vector<StateDto* > >("No se ha encontrado el panel", nullptr);
+}
+
+TaskStatus<TaskManager::StateDto*> TaskManager::PanelManager::getStatesFromCurrentPanel(string s)
+{
+    TaskManager::StateDto* state = getCurrentPanel()->getState(s);
+
+    return TaskStatus<TaskManager::StateDto*>(&state);
 }
 
 TaskStatus<vector<PanelDto*>> TaskManager::PanelManager::getAllPanels()

@@ -68,11 +68,15 @@ namespace TaskManager
 
         TaskStatus_b changeToPanel(int t);
 
+        TaskStatus_b changeStatusName(string old, string newName);
+
         void createNewPanel();
 
         TaskStatus<vector<TaskDto* >> getTaskFromState(string t);
 
         TaskStatus<vector<StateDto* >> getStatesFromPanel(string t);
+
+        TaskStatus<TaskManager::StateDto*> getStatesFromCurrentPanel(string s);
 
         TaskStatus<vector<PanelDto* >> getAllPanels();
 
