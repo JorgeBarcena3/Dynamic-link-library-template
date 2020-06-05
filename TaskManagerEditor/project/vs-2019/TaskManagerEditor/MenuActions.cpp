@@ -6,6 +6,7 @@
 #include <PanelLoader.hpp>
 #include <LuaScripting.hpp>
 #include <TaskStatus.hpp>
+#include <PanelDto.hpp>
 #include <QDesktopServices>
 #include <qinputdialog.h>
 #include <fstream>
@@ -31,6 +32,7 @@ MenuActions::MenuActions(QMainWindow* parent, Ui::TaskManagerEditorClass* ui)
     connect(ui->actionLua, SIGNAL(triggered(bool)), this, SLOT(executeLuaCommand(bool)));
     connect(ui->actionLuaFile, SIGNAL(triggered(bool)), this, SLOT(executeLuaFile(bool)));
     connect(ui->actionNew, SIGNAL(triggered(bool)), this, SLOT(newFile(bool)));
+    connect(ui->actionRemove_Panel, SIGNAL(triggered(bool)), this, SLOT(removePanel(bool)));
     connect(ui->actionClose, SIGNAL(triggered(bool)), parent, SLOT(close()));
     connect(QCoreApplication::instance(), SIGNAL(aboutToQuit()), this, SLOT(closeApplication()));
 
@@ -57,7 +59,8 @@ void MenuActions::saveAs(bool triggered)
 {
     defaultPath = QFileDialog::getSaveFileName(this, "Save file as", QDir::currentPath(), "SAV files (*.sav)");
 
-    checkError(panelExporter->exportData(defaultPath.toUtf8().constData()));
+    if (defaultPath != "")
+        checkError(panelExporter->exportData(defaultPath.toUtf8().constData()));
 }
 
 void MenuActions::exportXML(bool triggered)
@@ -128,15 +131,17 @@ void MenuActions::executeLuaFile(bool triggered)
 
 void MenuActions::newFile(bool triggered)
 {
-    save(triggered);
+    saveAs(triggered);
 
-    auto  m = ((TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager"));
-    m->createNewPanel();
+    if (defaultPath != "")
+    {
+        auto  m = ((TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager"));
+        m->createNewPanel();
 
-    TaskManagerEditor::getInstance()->refreshBoard();
+        TaskManagerEditor::getInstance()->refreshBoard();
 
-    activeFileButtons(TaskManagerEditor::getInstance()->getUI());
-
+        activeFileButtons(TaskManagerEditor::getInstance()->getUI());
+    }
 
 }
 
@@ -158,6 +163,33 @@ void MenuActions::closeApplication()
 
 }
 
+void MenuActions::removePanel(bool triggered)
+{
+    QStringList items;
+    for( auto panel : manager->getAllPanels().getReturnObj() )
+    {
+        items << QString(panel->getTitle().c_str());
+    }
+    
+
+    bool ok;
+    QString item = QInputDialog::getItem(
+        this,
+        "Remove panel",
+        "Name: ", 
+        items, 
+        0, 
+        false,
+        &ok
+    );
+
+    if (ok && !item.isEmpty())
+        manager->removePanel(item.toUtf8().constData());  
+
+    TaskManagerEditor::getInstance()->refreshBoard();
+
+}
+
 
 void MenuActions::activeFileButtons(Ui::TaskManagerEditorClass* ui)
 {
@@ -169,6 +201,7 @@ void MenuActions::activeFileButtons(Ui::TaskManagerEditorClass* ui)
     ui->actionNew_Panel->setEnabled(true);
     ui->actionRefresh->setEnabled(true);
     ui->actionEdit_Panel->setEnabled(true);
+    ui->actionRemove_Panel->setEnabled(true);
 }
 
 void MenuActions::desactiveFileButtons(Ui::TaskManagerEditorClass* ui)
@@ -183,6 +216,7 @@ void MenuActions::desactiveFileButtons(Ui::TaskManagerEditorClass* ui)
     ui->actionNew_Panel->setEnabled(false);
     ui->actionRefresh->setEnabled(false);
     ui->actionEdit_Panel->setEnabled(false);
+    ui->actionRemove_Panel->setEnabled(false);
 }
 
 void MenuActions::executeLuaCode(QString code)

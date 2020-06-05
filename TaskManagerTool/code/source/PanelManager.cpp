@@ -22,6 +22,21 @@ TaskStatus_b TaskManager::PanelManager::removeAllPanels()
     return true;
 }
 
+TaskStatus_b TaskManager::PanelManager::removePanel(string t)
+{
+    for (size_t i = 0; i < panels.size(); i++)
+    {
+        if (panels[i]->getTitle() == t)
+        {
+            delete panels[i];
+            panels.erase(panels.begin() + i);
+            i = panels.size();
+        }
+    }
+
+    return TaskStatus_b(true);
+}
+
 TaskStatus_b TaskManager::PanelManager::addState(string title)
 {
     return panels[currentPanelId]->addState(StateDto(title, panels[currentPanelId]));
@@ -123,6 +138,7 @@ TaskStatus_b TaskManager::PanelManager::changeToPanel(string t)
 
 void TaskManager::PanelManager::createNewPanel()
 {
+    removeAllPanels();
     string newPanelTitle = "Panel 1";
 
     createPanel(newPanelTitle);
@@ -171,6 +187,7 @@ TaskStatus<vector<TaskDto* >>  TaskManager::PanelManager::getTaskFromState(strin
 
 TaskStatus<vector<StateDto* >>  TaskManager::PanelManager::getStatesFromPanel(string t = "")
 {
+    changeToPanel(t);
     auto s = panels[currentPanelId];
 
     if (s)
@@ -208,3 +225,4 @@ TaskStatus_b TaskManager::PanelManager::initializeLuaScripting(TaskManager::LuaS
 
     return true;
 }
+

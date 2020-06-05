@@ -14,6 +14,7 @@ QTStateWidget::QTStateWidget(TaskManager::StateDto* state, QWidget* parent)
 
     connect(ui.edit_state_name, &QAbstractButton::clicked, this, &QTStateWidget::change_state_name);
     connect(ui.add_task_to_state, &QAbstractButton::clicked, this, &QTStateWidget::add_task_to_state);
+    connect(ui.remove_panel, &QAbstractButton::clicked, this, &QTStateWidget::remove_state);
 
     ui.titulo_estado->setText(state->getTitle().c_str());
 
@@ -85,6 +86,13 @@ void QTStateWidget::change_state_name()
             TaskManagerEditor::getInstance()->showError(err);
 
     }
+}
+
+void QTStateWidget::remove_state()
+{
+    TaskManagerEditor::getInstance()->showError(panelManager->removeState(ui.titulo_estado->text().toUtf8().constData()));
+    TaskManagerEditor::getInstance()->refreshBoard();
+
 }
 
 QString QTStateWidget::createDialog(QString title, QString subtitle)

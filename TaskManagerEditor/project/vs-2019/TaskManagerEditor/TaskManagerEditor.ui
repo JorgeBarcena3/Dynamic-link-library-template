@@ -155,6 +155,7 @@
    <addaction name="actionRefresh"/>
    <addaction name="actionNew_Panel"/>
    <addaction name="actionEdit_Panel"/>
+   <addaction name="actionRemove_Panel"/>
    <addaction name="separator"/>
    <addaction name="actionXML_Export"/>
    <addaction name="actionXML_Import"/>
@@ -211,6 +212,9 @@
    <property name="text">
     <string>XML</string>
    </property>
+   <property name="toolTip">
+    <string>Export XML</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+Shift+E</string>
    </property>
@@ -234,6 +238,9 @@
    </property>
    <property name="text">
     <string>XML</string>
+   </property>
+   <property name="toolTip">
+    <string>Import XML</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+I</string>
@@ -315,6 +322,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionRemove_Panel">
+   <property name="icon">
+    <iconset resource="TaskManagerEditor.qrc">
+     <normaloff>:/TaskManagerEditor/Erase.png</normaloff>:/TaskManagerEditor/Erase.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Panel</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove panel</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
    </property>
   </action>
  </widget>

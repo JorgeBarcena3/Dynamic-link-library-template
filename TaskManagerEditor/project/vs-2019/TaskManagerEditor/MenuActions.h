@@ -55,6 +55,8 @@ public slots:
 
     void closeApplication();
 
+    void removePanel(bool triggered);
+
 private:
 
     void activeFileButtons(Ui::TaskManagerEditorClass* ui);

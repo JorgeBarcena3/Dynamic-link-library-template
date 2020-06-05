@@ -52,11 +52,10 @@ TaskManager::TaskStatus_b TaskManager::PanelExporter::exportData(std::string dir
         }
 
         // Save to file
-        std::ofstream file_stored(string(directory).c_str());
+        std::ofstream file_stored(string(directory).c_str(), std::ios::trunc);
 
         if (file_stored.is_open())
         {
-
             file_stored << binarydata;
             file_stored.close();
 

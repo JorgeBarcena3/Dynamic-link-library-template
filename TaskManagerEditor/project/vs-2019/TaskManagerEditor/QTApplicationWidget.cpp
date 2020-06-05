@@ -43,7 +43,6 @@ void QTApplicationWidget::addPanel(bool triggered)
 
         if (err.itsOk())
         {
-
             setCurrentTab(createTab(text));
         }
         else
@@ -133,4 +132,6 @@ void QTApplicationWidget::changePanel(int index)
 {
     QTPanelWidget* currentState = (QTPanelWidget*)widget(index);
     panelManager->changeToPanel(currentState->getName().toUtf8().constData());
+    //TaskManagerEditor::getInstance()->refreshBoard();
+
 }

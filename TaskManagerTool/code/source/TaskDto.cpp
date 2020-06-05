@@ -15,7 +15,4 @@
 //    return string("");
 //}
 
-TaskManager::StateDto& TaskManager::TaskDto::getStateDto()
-{
-    return *stateDto;
-};
+

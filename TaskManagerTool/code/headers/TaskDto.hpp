@@ -85,7 +85,7 @@ namespace TaskManager
             return string(buff);
         };
 
-        StateDto& getStateDto();
+        inline StateDto& getStateDto() { return *stateDto; };
 
         inline void setState(StateDto* s) { stateDto = s; };
 

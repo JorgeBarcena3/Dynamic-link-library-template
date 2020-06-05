@@ -1,6 +1,7 @@
 #include "QTPanelWidget.h"
 #include "QTStateWidget.h"
 #include <PanelDto.hpp>
+#include <QtWidgets\qinputdialog.h>
 
 QTPanelWidget::QTPanelWidget(QString _name, QWidget* parent)
     : QWidget(parent), name(_name)
@@ -9,6 +10,7 @@ QTPanelWidget::QTPanelWidget(QString _name, QWidget* parent)
 
     connect(ui.next_panel, &QAbstractButton::clicked, this, &QTPanelWidget::nextState);
     connect(ui.previous_Panel, &QAbstractButton::clicked, this, &QTPanelWidget::previusState);
+    connect(ui.add_panel, &QAbstractButton::clicked, this, &QTPanelWidget::add_panel);
 
     panelManager = (TaskManager::PanelManager*)TaskManager::Aplication::instance()->getComponent("PanelManager");
 
@@ -28,7 +30,7 @@ void QTPanelWidget::refreshPanel()
 
     clearPanel();
 
-    auto states = panelManager->getStatesFromPanel(panelManager->getCurrentPanel()->getTitle()).getReturnObj();
+    auto states = panelManager->getStatesFromPanel(name.toUtf8().constData()).getReturnObj();
 
     max_states = states.size() - 1;
 
@@ -67,6 +69,25 @@ void QTPanelWidget::previusState()
 {
     stateIndex = (stateIndex - 1) < 0 ? max_states : stateIndex - 1;
     refreshPanel();
+}
+
+void QTPanelWidget::add_panel()
+{
+    bool ok;
+
+    QString text = QInputDialog::getText(
+        this,
+        QString("New Panel"),
+        QString("New panel name"),
+        QLineEdit::Normal,
+        "",
+        &ok);
+
+    if (ok && !text.isEmpty())
+    {
+        panelManager->addState(text.toUtf8().constData());
+    }
+
 }
 
 

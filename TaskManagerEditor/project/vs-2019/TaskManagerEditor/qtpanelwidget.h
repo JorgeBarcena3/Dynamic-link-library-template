@@ -32,12 +32,14 @@ public:
 
     void refreshPanel();
 
-private:
+public slots:
 
     void clearPanel();
 
     void nextState();
 
     void previusState();
+
+    void add_panel();
 
 };

@@ -50,6 +50,8 @@ namespace TaskManager
 
         TaskStatus_b removeAllPanels();
 
+        TaskStatus_b removePanel(string t);
+
         inline PanelDto* getCurrentPanel() { return (currentPanelId == -1) ? nullptr : panels[currentPanelId]; };
 
         TaskStatus_b addState(string title);

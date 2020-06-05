@@ -62,7 +62,7 @@ namespace TaskManager
 
         inline PanelDto* getPanel() { return panel; };
 
-        std::string getTitle() { return title; };
+        inline std::string getTitle() { return title; };
 
         inline void setTitle(std::string t) { title = t; };
 

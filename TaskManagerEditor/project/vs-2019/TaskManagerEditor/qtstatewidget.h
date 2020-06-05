@@ -30,6 +30,8 @@ public slots:
 
     void change_state_name();
 
+    void remove_state();
+
 private:
 
     void clearState();
