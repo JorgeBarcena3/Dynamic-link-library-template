@@ -29,15 +29,12 @@ Para la realización de este proyecto he utilizado las siguientes versiones de l
 En la carpeta de este proyecto encontraremos dos carpetas, cada una de esta carpeta tendrá una solución para visual studio 2019. Las carpetas son las siguientes:
 
 - **TaskManagerTool:**  Esta carpeta contiene el proyecto de la herramienta. Este proyecto generara una biblioteca de enlace dinámico (.dll), tras la compilación del mismo, los archivos se copiaran (Comando de VS 'xcopy') a los lugares necesarios para la ejecución del proyecto "TaskManagerEditor".
-
 - **TaskManagerEditor:** Esta carpeta contiene el proyecto de la UI de la herramienta. La UI se ha realizado con el framework QT en Visual Studio, también se ha utilizado la herramienta "QT Designer", para diseñar la interfaz de usuario. Este proyecto genera un ejecutable de la herramienta, y hace uso de la librería de enlace dinámico de "TaskManagerTool". Este proyecto hace uso de el comando de VS 'xcopy', para que el proyecto de QT funcione correctamente.
 
 Además de estas carpetas encontraremos tres carpetas más:
 
 - **VS-Solution:** Contiene una solución configurada para su ejecución de visual studio 2019, con los dos proyectos anteriores.
-
 - **binaries:** Contiene una versión ejecutable de la aplicación para su uso final.
-
 - **documents:** Contiene una serie de documentos para
 
 el uso de la herramienta.
@@ -47,9 +44,7 @@ el uso de la herramienta.
 La herramienta presenta el siguiente modelo de datos para almacenar las tareas:
 
 - **Tareas:** Guarda el título, descripción, fecha de creación y a quien esta asignada la tarea.
-
 - **Estados:** Guarda la una serie de tareas.
-
 - **Paneles:** Contiene los estados.
 
 Conocer este modelo de datos es indispensable para el correcto uso de la misma, ya que lo tendremos que tener presente a utilizar la herramienta.
