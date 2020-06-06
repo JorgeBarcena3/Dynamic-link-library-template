@@ -64,7 +64,9 @@ binaries\bin\TaskManagerEditor.exe
 
 Una vez ejecutado el siguiente archivo se nos presentará la siguiente pantalla:
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/1.png" />
+</p>
 
 Si hacemos click sobre el botón redondeado de azul, se nos creara un archivo nuevo. También podemos cargar un archivo XML previamente exportado por la aplicación. Nosotros elegiremos el botón redondeado verde, para cargar un archivo ya existente. El archivo que queremos cargar se encontrara en la siguiente ruta:
 
@@ -72,11 +74,15 @@ binaries\assets\ExampleTab.sav
 
 Una vez escogido el siguiente archivo, el panel debería mostrarse de la siguiente forma
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/2.png" />
+</p>
 
 A continuación, se detallan las funciones de cada botón de la barra de tareas
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/3.png" />
+</p>
 
 1. Nuevo archivo
 
@@ -100,7 +106,9 @@ A continuación, se detallan las funciones de cada botón de la barra de tareas
 
 A continuación, se detallan las funciones de cada botón de la barra paneles
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/4.png" />
+</p>
 
 1. Añadir un nuevo estado
 
@@ -110,7 +118,9 @@ A continuación, se detallan las funciones de cada botón de la barra paneles
 
 A continuación, se detallan las funciones de cada botón de la barra estados
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/5.png" />
+</p>
 
 1. Editar título de un estado
 
@@ -120,7 +130,9 @@ A continuación, se detallan las funciones de cada botón de la barra estados
 
 A continuación, se detallan las funciones de cada botón del panel de tareas
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/6.png" />
+</p>
 
 1. Editar el título de la tarea
 
@@ -134,7 +146,9 @@ A continuación, se detallan las funciones de cada botón del panel de tareas
 
 También hay una serie de funciones que se pueden utilizar para la automatización de tareas mediante el lenguaje de script LUA. Estas funciones se encuentran en el menú de "build".
 
-[ESTO ES UNA IMAGEN]
+<p align="center">
+  <img src="https://github.com/JorgeBarcena3/Task-Manager/blob/master/documents/images/7.png" />
+</p>
 
 1. Ejecutar una línea de comando con LUA
 
