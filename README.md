@@ -21,9 +21,7 @@ Todo el código está documentado para que doxygen genere los documentos pertine
 Para la realización de este proyecto he utilizado las siguientes versiones de librerías externas:
 
 - [Lua](https://www.lua.org/home.html): Maquina virtual de LUA.
-
 - [LuaState](https://travis-ci.org/github/AdUki/LuaState): Permite adaptar las funciones de C++ con el lenguaje LUA.
-
 - [RapidXML](http://rapidxml.sourceforge.net/): Lectura y escritura de archivos XML.
 
 ## Organización del proyecto
